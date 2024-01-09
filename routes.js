@@ -1,8 +1,8 @@
 import express from 'express';
 const route = express.Router();
 
-route.get('/', (req, res) => {
-   res.render('index');
-})
+import { homeIndex } from './src/controllers/homeController.js';
+
+route.get('/', homeIndex);
 
 export default route;
