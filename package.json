@@ -1,0 +1,20 @@
+{
+  "name": "pronto-falei",
+  "version": "1.0.0",
+  "description": "Projeto \"Pronto, Falei\", que tem como propósito o desabafo dos usuários, expondo situações e momentos difíceis",
+  "main": "routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "Luke <lukedev09@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "url": "^0.11.3"
+  }
+}
