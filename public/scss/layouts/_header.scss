@@ -1,0 +1,35 @@
+@use '../base/variables';
+@use '../modules/button';
+@use '../modules/displays';
+
+#header{
+   @extend %center-display;
+   font-family: 'Inter', sans-serif;
+}
+
+.header-content{
+   @extend %box-size;
+   @extend %standard-display;
+   padding: 1.5rem 2rem;
+
+   &__logo{
+      font-weight: 700;
+      font-size: 1.5rem;
+   }
+
+   &__menu{
+      display: flex;
+
+      &__item {
+         padding: 0 1.5rem;
+         
+         a:hover {
+            color: variables.$secondary-color;
+         }
+      }
+   }
+
+   .btn{
+      @extend %btn-style;
+   }
+}

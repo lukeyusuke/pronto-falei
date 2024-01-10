@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html{
+   scroll-behavior: smooth;
+}
+
+a {
+   text-decoration: none;
+   color: black;
+   transition: .3s;
+
+   &:hover{
+      color: #EF4056;
+   }
+}
+
+li {
+   list-style: none;
+}
+
+button{
+   cursor: pointer;
+   outline: 0;
+}

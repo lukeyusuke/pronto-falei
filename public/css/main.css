@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+a:hover {
+  color: #EF4056;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  outline: 0;
+}
+
+.header-content .btn {
+  background-color: transparent;
+  border: 1px solid #EF4056;
+  border-radius: 0.5rem;
+  color: #EF4056;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  padding: 1rem 3.25rem;
+  transition: 0.3s;
+}
+.header-content .btn:hover {
+  background-color: #EF4056;
+  color: #FFFFFF;
+}
+
+#header {
+  display: flex;
+  justify-content: center;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 1366px;
+}
+
+.header-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#header {
+  font-family: "Inter", sans-serif;
+}
+
+.header-content {
+  padding: 1.5rem 2rem;
+}
+.header-content__logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.header-content__menu {
+  display: flex;
+}
+.header-content__menu__item {
+  padding: 0 1.5rem;
+}
+.header-content__menu__item a:hover {
+  color: #EF4056;
+}
+
+/*# sourceMappingURL=main.css.map */

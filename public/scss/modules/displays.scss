@@ -1,0 +1,16 @@
+%center-display{
+   display: flex;
+   justify-content: center;
+}
+
+%box-size{
+   width: 100%;
+   max-width: 1366px;
+}
+
+%standard-display{
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   justify-content: space-between;
+}

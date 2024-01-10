@@ -5,6 +5,8 @@ import routes from './routes.js';
 const app = express();
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'src')));
 
 app.set('views', [
