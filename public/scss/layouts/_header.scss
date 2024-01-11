@@ -2,7 +2,7 @@
 @use '../modules/button';
 @use '../modules/displays';
 
-#header{
+#introduce, #header{
    @extend %center-display;
    font-family: 'Inter', sans-serif;
 }
@@ -11,6 +11,7 @@
    @extend %box-size;
    @extend %standard-display;
    padding: 1.5rem 2rem;
+   border-bottom: 1px solid variables.$line-color;
 
    &__logo{
       font-weight: 700;
@@ -28,8 +29,8 @@
          }
       }
    }
+}
 
-   .btn{
-      @extend %btn-style;
-   }
+.btn{
+   @extend %btn-style;
 }
