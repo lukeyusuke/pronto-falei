@@ -10,6 +10,15 @@ html {
   scroll-behavior: smooth;
 }
 
+h1, h2, h3, h4 {
+  font-family: "Inter", sans-serif;
+}
+
+p {
+  color: rgba(34, 34, 34, 0.8);
+  font-family: "Istok Web", sans-serif;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -43,12 +52,12 @@ button {
   color: #FFFFFF;
 }
 
-#introduce, #header {
+#header, #introduce, #about-us {
   display: flex;
   justify-content: center;
 }
 
-.introduce-content, .header-content {
+.about-us-content, .introduce-content, .header-content {
   width: 100%;
   max-width: 1366px;
 }
@@ -60,13 +69,12 @@ button {
   justify-content: space-between;
 }
 
-#introduce, #header {
+#header, #introduce, #about-us {
   font-family: "Inter", sans-serif;
 }
 
 .header-content {
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid rgba(34, 34, 34, 0.3);
 }
 .header-content__logo {
   font-weight: 700;
@@ -82,19 +90,78 @@ button {
   color: #EF4056;
 }
 
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(34, 34, 34, 0.3);
+}
+
 .introduce-content {
   text-align: center;
   padding: 8rem 0;
-  border-bottom: 1px solid rgba(34, 34, 34, 0.3);
 }
 .introduce-content__h2 {
   font-size: 2.5rem;
-  font-family: "Inter", sans-serif;
 }
 .introduce-content__p {
-  color: rgba(34, 34, 34, 0.8);
-  font-family: "Istok Web", sans-serif;
   margin: 2.5rem 0;
+}
+
+.about-us-content {
+  padding: 1rem 4rem 6rem 4rem;
+}
+.about-us-content__title {
+  text-align: center;
+  padding: 2.5rem 0;
+}
+.about-us-content__title__p {
+  padding: 2rem 0 2.5rem 0;
+}
+
+.about-us__info {
+  text-align: justify;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.about-us__info__box {
+  border: 1px solid rgba(34, 34, 34, 0.3);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  width: 500px;
+  transition: 0.3s;
+}
+.about-us__info__box:hover {
+  background-color: #EF4056;
+}
+.about-us__info__box:hover .about-us__info__box__title {
+  color: #FFFFFF;
+}
+.about-us__info__box:hover .about-us__info__box__title svg path, .about-us__info__box:hover .about-us__info__box__title svg rect, .about-us__info__box:hover .about-us__info__box__title svg circle {
+  stroke: #FFFFFF;
+}
+.about-us__info__box:hover .about-us__info__box__image {
+  background-color: rgba(160, 70, 82, 0.5);
+}
+.about-us__info__box:hover .about-us__info__box__p {
+  color: rgba(255, 255, 255, 0.8);
+}
+.about-us__info__box__title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.about-us__info__box__image {
+  background-color: rgba(239, 64, 86, 0.5);
+  border-radius: 2rem;
+  padding: 0.5rem 0;
+  text-align: center;
+  width: 60px;
+}
+.about-us__info__box__p {
+  padding: 1rem 0;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,74 @@
+@use '../base/variables';
+@use '../modules/displays';
+
+.about-us-content{
+   padding: 1rem 4rem 6rem 4rem;
+   @extend %box-size;
+
+   &__title{
+      text-align: center;
+      padding: 2.5rem 0;
+
+      &__p{
+         padding: 2rem 0 2.5rem 0;
+      }
+   }
+}
+
+.about-us__info{
+   text-align: justify;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 2rem;
+
+   &__box{
+      border: 1px solid variables.$line-color;
+      border-radius: .5rem;
+      cursor: pointer;
+      padding: 1rem 1.5rem;
+      width: 500px;
+      transition: .3s;
+
+
+      &:hover{
+         background-color: variables.$secondary-color;
+
+         .about-us__info__box__title{
+            color: variables.$primary-color;
+
+            svg {
+               path, rect, circle{
+                  stroke: variables.$primary-color;
+               }
+            }
+         }
+
+         .about-us__info__box__image{
+            background-color: rgba(160, 70, 82, 0.5);
+         }
+
+         .about-us__info__box__p{
+            color: rgb(255, 255, 255, 0.8);
+         }
+      }
+
+      &__title{
+         display: flex;
+         align-items: center;
+         gap: 1rem;
+      }
+
+      &__image{
+         background-color: variables.$secondary-color-hover;
+         border-radius: 2rem;
+         padding: .5rem 0;
+         text-align: center;
+         width: 60px;
+      }
+
+      &__p{
+         padding: 1rem 0;
+      }
+   }
+}
