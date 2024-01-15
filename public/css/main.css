@@ -19,6 +19,10 @@ p {
   font-family: "Istok Web", sans-serif;
 }
 
+b {
+  color: #EF4056;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -145,12 +149,20 @@ input, textarea {
   padding: 8rem 0;
 }
 .introduce-content__h2 {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
 }
 .introduce-content__p {
   margin: 2.5rem 0;
 }
 
+@media (max-width: 690px) {
+  .introduce-content {
+    padding: 8rem 2.5rem;
+  }
+  br {
+    display: none;
+  }
+}
 .about-us-content {
   padding: 1rem 4rem 6rem 4rem;
 }
@@ -253,6 +265,11 @@ input, textarea {
   margin-top: 4rem;
 }
 
+@media (max-width: 690px) {
+  .talk-us-content__form {
+    width: 100%;
+  }
+}
 .footer-content {
   padding: 1.5rem 2rem;
   display: flex;
@@ -281,6 +298,18 @@ input, textarea {
 }
 .footer-content__social-medias__box:nth-child(3):hover svg path {
   fill: #FFFFFF;
+}
+
+@media (max-width: 690px) {
+  .footer-content {
+    flex-direction: column;
+  }
+  .footer-content__p {
+    order: 1;
+  }
+  .footer-content__social-medias {
+    margin: 1.5rem 0;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

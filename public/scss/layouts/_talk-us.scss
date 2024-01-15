@@ -1,5 +1,6 @@
 @use '../base/variables';
-@use '../modules/displays.scss';
+@use '../modules/displays';
+@use '../modules/screens';
 
 .talk-us-content{
    padding: 2rem 4rem 6rem 4rem;
@@ -55,6 +56,14 @@
       &__btn {
          padding: 1.25rem 4.5rem;
          margin-top: 4rem;
+      }
+   }
+}
+
+@include screens.small-screen{
+   .talk-us-content{
+      &__form{
+         width: 100%;
       }
    }
 }

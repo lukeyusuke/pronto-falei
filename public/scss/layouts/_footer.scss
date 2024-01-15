@@ -1,5 +1,6 @@
 @use '../base/variables';
 @use '../modules/displays.scss';
+@use '../modules/screens';
 
 .footer-content{
    padding: 1.5rem 2rem;
@@ -43,6 +44,20 @@
                }
             }
          }
+      }
+   }
+}
+
+@include screens.small-screen{
+   .footer-content{
+      flex-direction: column;
+
+      &__p{
+         order: 1;
+      }
+      
+      &__social-medias{
+         margin: 1.5rem 0;
       }
    }
 }
