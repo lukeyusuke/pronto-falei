@@ -37,6 +37,10 @@ button {
   outline: 0;
 }
 
+input, textarea {
+  outline: 0;
+}
+
 .btn {
   background-color: transparent;
   border: 1px solid #EF4056;
@@ -52,12 +56,12 @@ button {
   color: #FFFFFF;
 }
 
-#header, #introduce, #about-us {
+#header, #introduce, #about-us, #talk-us {
   display: flex;
   justify-content: center;
 }
 
-.about-us-content, .introduce-content, .header-content {
+.talk-us-content, .about-us-content, .introduce-content, .header-content {
   width: 100%;
   max-width: 1366px;
 }
@@ -69,7 +73,7 @@ button {
   justify-content: space-between;
 }
 
-#header, #introduce, #about-us {
+#header, #introduce, #about-us, #talk-us {
   font-family: "Inter", sans-serif;
 }
 
@@ -162,6 +166,51 @@ button {
 }
 .about-us__info__box__p {
   padding: 1rem 0;
+}
+
+.talk-us-content {
+  padding: 2rem 4rem 6rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.talk-us-content__title {
+  text-align: center;
+  padding: 2.5rem 0;
+}
+.talk-us-content__title__p {
+  padding: 2rem 0 2rem 0;
+}
+.talk-us-content__form {
+  width: 45%;
+  font-family: "Inter", sans-serif;
+}
+.talk-us-content__form__box + .talk-us-content__form__box {
+  margin-top: 3rem;
+}
+.talk-us-content__form__box label {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+.talk-us-content__form__box input, .talk-us-content__form__box textarea {
+  border: 1px solid rgba(34, 34, 34, 0.3);
+  border-radius: 0.5rem;
+  font-family: "Istok Web", sans-serif;
+  padding-left: 1rem;
+  width: 100%;
+  height: 55px;
+}
+.talk-us-content__form__box input:focus, .talk-us-content__form__box textarea:focus {
+  border: 1px solid #EF4056;
+}
+.talk-us-content__form__box textarea {
+  padding-top: 1rem;
+  height: 150px;
+  resize: none;
+}
+.talk-us-content__form__btn {
+  padding: 1.25rem 4.5rem;
+  margin-top: 4rem;
 }
 
 /*# sourceMappingURL=main.css.map */

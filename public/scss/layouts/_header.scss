@@ -2,7 +2,7 @@
 @use '../modules/button';
 @use '../modules/displays';
 
-#header, #introduce, #about-us{
+#header, #introduce, #about-us, #talk-us{
    @extend %center-display;
    font-family: 'Inter', sans-serif;
 }

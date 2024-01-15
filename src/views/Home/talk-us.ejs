@@ -1,20 +1,24 @@
    <section id="talk-us">
       <div class="talk-us-content">
-         <h3 class="about-us-content__h3">Fale conosco</h3>
-         <form action="/" method="post">
-            <div class="talk-us-content__box">
+         <div class="talk-us-content__title">
+            <h3 class="talk-us-content__title__h3">Fale conosco</h3>
+            <p class="talk-us-content__title__p">Envie sua mensagem, pode ser um feedback, agradecimento,<br/> melhorias que podemos realizar e diversos outros...</p>
+         </div>
+         <form class="talk-us-content__form" action="/" method="post">
+            <div class="talk-us-content__form__box">
                <label for="nome">Nome</label><br/>
                <input type="text" name="nome" id="nome" placeholder="Afonso Ribeiro">
             </div>
-            <div class="talk-us-content__box">
+            <div class="talk-us-content__form__box">
                <label for="email">Email</label><br/>
                <input type="text" name="email" id="email" placeholder="afonso@gmail.com">
             </div>
-            <div class="talk-us-content__box">  
+            <div class="talk-us-content__form__box">  
                <label for="mensagem">Mensagem</label><br/>
-               <input type="text" name="mensagem" id="mensagem" placeholder="Para mandar feedbacks, agradecimentos, melhorias que podemos realizar dentro do site ou outras questões...">
+               <textarea type="text" name="mensagem" id="mensagem" placeholder="Digite sua mensagem..."></textarea>
             </div>
          </form>
+         <button class="talk-us-content__form__btn btn">Enviar</button>
       </div>
    </section>
 </main>
