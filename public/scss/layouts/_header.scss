@@ -1,6 +1,7 @@
 @use '../base/variables';
 @use '../modules/button';
 @use '../modules/displays';
+@use '../modules/screens';
 
 #header, #introduce, #about-us, #talk-us, #footer{
    @extend %center-display;
@@ -21,6 +22,56 @@
          a:hover {
             color: variables.$secondary-color;
          }
+      }
+   }
+
+   &__icon{
+      display: none;
+   }
+}
+
+.header-content__nav.active{
+   @include screens.small-screen{
+      .header-content__menu{
+         display: flex;
+         flex-direction: column;
+         background-color: rgba(0,0,0,0.9);
+         height: 100vh;
+         left: 0;
+         top: 4.9rem;
+         text-align: center;
+         position: absolute;
+         width: 100%;
+         z-index: 1;
+      }
+
+      .header-content__menu__item{
+         margin-top: 3rem;
+
+         a{
+            color: variables.$primary-color;
+
+            &:hover{
+               color: variables.$secondary-color;
+            }
+         }
+      }
+   }
+}
+
+@include screens.small-screen{
+   .header-content{
+      &__menu{
+         display: none;
+      }
+   
+      &__icon{
+         cursor: pointer;
+         display: block;
+      }
+   
+      .btn{
+         display: none
       }
    }
 }

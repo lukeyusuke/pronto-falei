@@ -89,7 +89,46 @@ input, textarea {
 .header-content__menu__item a:hover {
   color: #EF4056;
 }
+.header-content__icon {
+  display: none;
+}
 
+@media (max-width: 690px) {
+  .header-content__nav.active .header-content__menu {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 100vh;
+    left: 0;
+    top: 4.9rem;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+  .header-content__nav.active .header-content__menu__item {
+    margin-top: 3rem;
+  }
+  .header-content__nav.active .header-content__menu__item a {
+    color: #FFFFFF;
+  }
+  .header-content__nav.active .header-content__menu__item a:hover {
+    color: #EF4056;
+  }
+}
+
+@media (max-width: 690px) {
+  .header-content__menu {
+    display: none;
+  }
+  .header-content__icon {
+    cursor: pointer;
+    display: block;
+  }
+  .header-content .btn {
+    display: none;
+  }
+}
 .line {
   width: 100%;
   height: 1px;
