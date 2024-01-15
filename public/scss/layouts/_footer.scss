@@ -1,0 +1,48 @@
+@use '../base/variables';
+@use '../modules/displays.scss';
+
+.footer-content{
+   padding: 1.5rem 2rem;
+   display: flex;
+   @extend %box-size;
+   @extend %default-display;
+
+   &__social-medias{
+      display: flex;
+      gap: 1rem;
+      
+      &__box{
+         cursor: pointer;
+
+         &:nth-child(1):hover{
+            svg{
+               fill: variables.$linkedin-color;
+
+               path{
+                  fill: variables.$primary-color;
+               }
+            }
+         }
+
+         &:nth-child(2):hover{
+            svg{
+               fill: variables.$github-color;
+
+               path{
+                  stroke: variables.$primary-color;
+               }
+            }
+         }
+         
+         &:nth-child(3):hover{
+            svg{
+               fill: variables.$moon-color;
+
+               path{
+                  fill: variables.$primary-color;
+               }
+            }
+         }
+      }
+   }
+}

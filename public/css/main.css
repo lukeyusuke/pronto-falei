@@ -56,33 +56,29 @@ input, textarea {
   color: #FFFFFF;
 }
 
-#header, #introduce, #about-us, #talk-us {
+#header, #introduce, #about-us, #talk-us, #footer {
   display: flex;
   justify-content: center;
 }
 
-.talk-us-content, .about-us-content, .introduce-content, .header-content {
+.footer-content, .talk-us-content, .about-us-content, .introduce-content, .header-content {
   width: 100%;
   max-width: 1366px;
 }
 
-.header-content {
+.footer-content, .header-content {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
 
-#header, #introduce, #about-us, #talk-us {
+#header, #introduce, #about-us, #talk-us, #footer {
   font-family: "Inter", sans-serif;
 }
 
 .header-content {
   padding: 1.5rem 2rem;
-}
-.header-content__logo {
-  font-weight: 700;
-  font-size: 1.5rem;
 }
 .header-content__menu {
   display: flex;
@@ -97,7 +93,12 @@ input, textarea {
 .line {
   width: 100%;
   height: 1px;
-  background-color: rgba(34, 34, 34, 0.3);
+  background-color: rgba(34, 34, 34, 0.3019607843);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .introduce-content {
@@ -130,7 +131,7 @@ input, textarea {
   gap: 2rem;
 }
 .about-us__info__box {
-  border: 1px solid rgba(34, 34, 34, 0.3);
+  border: 1px solid rgba(34, 34, 34, 0.3019607843);
   border-radius: 0.5rem;
   cursor: pointer;
   padding: 1rem 1.5rem;
@@ -158,7 +159,7 @@ input, textarea {
   gap: 1rem;
 }
 .about-us__info__box__image {
-  background-color: rgba(239, 64, 86, 0.5);
+  background-color: rgba(239, 64, 86, 0.5019607843);
   border-radius: 2rem;
   padding: 0.5rem 0;
   text-align: center;
@@ -193,7 +194,7 @@ input, textarea {
   margin-bottom: 0.4rem;
 }
 .talk-us-content__form__box input, .talk-us-content__form__box textarea {
-  border: 1px solid rgba(34, 34, 34, 0.3);
+  border: 1px solid rgba(34, 34, 34, 0.3019607843);
   border-radius: 0.5rem;
   font-family: "Istok Web", sans-serif;
   padding-left: 1rem;
@@ -211,6 +212,36 @@ input, textarea {
 .talk-us-content__form__btn {
   padding: 1.25rem 4.5rem;
   margin-top: 4rem;
+}
+
+.footer-content {
+  padding: 1.5rem 2rem;
+  display: flex;
+}
+.footer-content__social-medias {
+  display: flex;
+  gap: 1rem;
+}
+.footer-content__social-medias__box {
+  cursor: pointer;
+}
+.footer-content__social-medias__box:nth-child(1):hover svg {
+  fill: #1373E5;
+}
+.footer-content__social-medias__box:nth-child(1):hover svg path {
+  fill: #FFFFFF;
+}
+.footer-content__social-medias__box:nth-child(2):hover svg {
+  fill: #222222;
+}
+.footer-content__social-medias__box:nth-child(2):hover svg path {
+  stroke: #FFFFFF;
+}
+.footer-content__social-medias__box:nth-child(3):hover svg {
+  fill: #7620E7;
+}
+.footer-content__social-medias__box:nth-child(3):hover svg path {
+  fill: #FFFFFF;
 }
 
 /*# sourceMappingURL=main.css.map */
