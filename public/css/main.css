@@ -258,6 +258,10 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
   width: 45%;
   font-family: "Inter", sans-serif;
 }
+.talk-us-content__form__btn {
+  display: block;
+  margin: 0 auto;
+}
 .talk-us-content__form__box + .talk-us-content__form__box {
   margin-top: 3rem;
 }

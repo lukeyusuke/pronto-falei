@@ -38,6 +38,11 @@ body.dark{
       width: 45%;
       font-family: 'Inter', sans-serif;
 
+      &__btn{
+         display: block;
+         margin: 0 auto;
+      }
+
       &__box + &__box{
          margin-top: 3rem;
       }

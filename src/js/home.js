@@ -15,5 +15,25 @@ const darkLightMode = () => {
    })
 }
 
+const sendEmail = () => {
+   const form = document.querySelector('.talk-us-content__form')
+
+   form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+   
+      fetch('/', {
+         method: 'POST',
+         headers: {
+            'Content-Type': 'application/json;charset=UTF-8'
+         },
+         body: JSON.stringify(Object.fromEntries(formData))
+      }).then((response) => {
+         console.log(response);
+      })
+   })
+}
+
 showMenuMobile();
 darkLightMode();
+sendEmail();
