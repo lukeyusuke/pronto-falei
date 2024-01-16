@@ -19,6 +19,16 @@ p {
   font-family: "Istok Web", sans-serif;
 }
 
+body.dark {
+  background-color: #0c0c0c;
+}
+body.dark p {
+  color: rgba(201, 201, 201, 0.7019607843);
+}
+body.dark h3 {
+  color: #FFF;
+}
+
 b {
   color: #EF4056;
 }
@@ -81,6 +91,16 @@ input, textarea {
   font-family: "Inter", sans-serif;
 }
 
+body.dark .logo, body.dark .header-content__menu__item a {
+  color: #FFFFFF;
+}
+body.dark a:hover {
+  color: #EF4056;
+}
+body.dark .header-content__icon path {
+  stroke: #FFFFFF;
+}
+
 .header-content {
   padding: 1.5rem 2rem;
 }
@@ -133,15 +153,8 @@ input, textarea {
     display: none;
   }
 }
-.line {
-  width: 100%;
-  height: 1px;
-  background-color: rgba(34, 34, 34, 0.3019607843);
-}
-
-.logo {
-  font-weight: 700;
-  font-size: 1.5rem;
+body.dark .introduce-content {
+  color: #FFFFFF;
 }
 
 .introduce-content {
@@ -218,6 +231,14 @@ input, textarea {
 }
 .about-us__info__box__p {
   padding: 1rem 0;
+}
+
+body.dark .talk-us-content__form {
+  color: #FFFFFF;
+}
+body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__box textarea {
+  color: #FFFFFF;
+  background-color: black;
 }
 
 .talk-us-content {
@@ -310,6 +331,20 @@ input, textarea {
   .footer-content__social-medias {
     margin: 1.5rem 0;
   }
+}
+body.dark .line {
+  background-color: rgb(34, 34, 34);
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(34, 34, 34, 0.3019607843);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=main.css.map */

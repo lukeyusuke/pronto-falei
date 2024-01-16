@@ -19,6 +19,18 @@ p {
    font-family: 'Istok Web', sans-serif;
 }
 
+body.dark{
+   background-color: #0c0c0c;
+
+   p {
+      color: #c9c9c9b3;
+   }
+
+   h3{
+      color: #FFF;
+   }
+}
+
 b{
    color: #EF4056;
 }
