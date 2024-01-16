@@ -7,4 +7,13 @@ const showMenuMobile = () => {
    })
 }
 
+const darkLightMode = () => {
+   const moon = document.querySelector('.moon');
+
+   moon.addEventListener('click', () => {
+      document.body.classList.toggle("dark");
+   })
+}
+
 showMenuMobile();
+darkLightMode();

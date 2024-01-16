@@ -1,0 +1,23 @@
+@use '../base/variables';
+@use '../modules/button';
+
+body.dark{
+   .line{
+      background-color: rgba(34, 34, 34, 1);
+   }
+}
+
+.btn{
+   @extend %btn-style;
+}
+
+.line {
+   width: 100%;
+   height: 1px;
+   background-color: variables.$line-color;
+}
+
+.logo{
+   font-weight: 700;
+   font-size: 1.5rem;
+}
