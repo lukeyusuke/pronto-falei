@@ -285,6 +285,22 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
   height: 150px;
   resize: none;
 }
+.talk-us-content__form .error-message {
+  color: #f03e3e;
+  margin-top: 0.5rem;
+  display: none;
+}
+.talk-us-content__form .error-message.active {
+  display: block;
+}
+.talk-us-content__form .success-message {
+  color: #59b366;
+  margin-top: 0.5rem;
+  display: none;
+}
+.talk-us-content__form .success-message.active {
+  display: block;
+}
 .talk-us-content__form__btn {
   padding: 1.25rem 4.5rem;
   margin-top: 4rem;
