@@ -1,6 +1,6 @@
 @use '../base/variables';
 @use '../modules/displays';
-@use '../modules/screens';
+@use '../modules/mixins';
 
 body.dark{
    .introduce-content{
@@ -22,7 +22,7 @@ body.dark{
    }
 }
 
-@include screens.small-screen{
+@include mixins.small-screen{
    .introduce-content{
       padding: 8rem 2.5rem;
    }

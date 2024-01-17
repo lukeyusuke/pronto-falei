@@ -1,6 +1,6 @@
 @use '../base/variables';
 @use '../modules/displays';
-@use '../modules/screens';
+@use '../modules/mixins';
 
 body.dark{
    .talk-us-content{
@@ -38,6 +38,11 @@ body.dark{
       width: 45%;
       font-family: 'Inter', sans-serif;
 
+      &__btn{
+         display: block;
+         margin: 0 auto;
+      }
+
       &__box + &__box{
          margin-top: 3rem;
       }
@@ -68,6 +73,22 @@ body.dark{
          }
       }
 
+      .error-message{
+         @include mixins.message(#f03e3e);
+
+         &.active{
+            display: block;
+         }
+      }
+
+      .success-message{
+         @include mixins.message(#59b366);
+
+         &.active{
+            display: block;
+         }
+      }
+
       &__btn {
          padding: 1.25rem 4.5rem;
          margin-top: 4rem;
@@ -75,7 +96,7 @@ body.dark{
    }
 }
 
-@include screens.small-screen{
+@include mixins.small-screen{
    .talk-us-content{
       &__form{
          width: 100%;

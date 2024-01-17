@@ -1,0 +1,11 @@
+@mixin message($color){
+   color: $color;
+   margin-top: .5rem;
+   display: none;
+}
+
+@mixin small-screen{
+   @media(max-width: 690px){
+      @content
+   }
+}
