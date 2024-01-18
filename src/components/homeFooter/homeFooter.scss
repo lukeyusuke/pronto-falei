@@ -1,6 +1,6 @@
-@use '../base/variables';
-@use '../modules/displays.scss';
-@use '../modules/mixins';
+@use '../../../public/scss/base/variables';
+@use '../../../public/scss/modules/displays';
+@use '../../../public/scss/modules/mixins';
 
 .footer-content{
    padding: 1.5rem 2rem;
