@@ -1,6 +1,6 @@
 @use '../../modules/mixins';
 
-.sign-up{
+#sign-up{
    width: 70%;
 
    .form-content{
@@ -24,19 +24,12 @@
 }
 
 @include mixins.second-small-screen{
-   .sign-up{
-      width: 80%;
+   #sign-up{
+      width: 100%;
 
       .flex-content{
          flex-direction: column;
          gap: 0rem;
       }
-
-      .input-content:nth-child(2){
-         .form__box:nth-child(1){
-            margin: 0;
-         }
-      }
-
    }
 }

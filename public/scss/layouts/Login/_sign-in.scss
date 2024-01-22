@@ -1,17 +1,17 @@
 @use '../../modules/mixins';
 
-.sign-in, .sign-up{
+#login, #sign-up{
    margin: 0 auto;
    padding: 3rem 0;
-   
-   .section-title{
-      padding: 2rem 0;
-   }
 }
 
-.sign-in {
-   display: none;
+#login {
    width: 40%;
+
+   .section-title{
+      padding: 0 0 4rem 0;
+   }
+   
    .form-content{
       .btn{
          margin: 5rem auto 1.75rem auto;
@@ -24,7 +24,7 @@
 }
 
 @include mixins.second-small-screen{
-   .sign-in{
-      width: 80%;
+   #login{
+      width: 100%;
    }
 }
