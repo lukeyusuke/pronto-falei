@@ -1,11 +1,11 @@
 @use '../../modules/mixins';
 
-#sign-in, #sign-up{
+#login, #sign-up{
    margin: 0 auto;
    padding: 3rem 0;
 }
 
-#sign-in {
+#login {
    width: 40%;
 
    .section-title{

@@ -300,21 +300,21 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
     margin: 1.5rem 0;
   }
 }
-#sign-in, #sign-up {
+#login, #sign-up {
   margin: 0 auto;
   padding: 3rem 0;
 }
 
-#sign-in {
+#login {
   width: 40%;
 }
-#sign-in .section-title {
+#login .section-title {
   padding: 0 0 4rem 0;
 }
-#sign-in .form-content .btn {
+#login .form-content .btn {
   margin: 5rem auto 1.75rem auto;
 }
-#sign-in span {
+#login span {
   margin-bottom: 1rem;
 }
 
@@ -324,7 +324,6 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
   }
 }
 #sign-up {
-  display: none;
   width: 70%;
 }
 #sign-up .form-content .btn {
