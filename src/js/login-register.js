@@ -1,3 +1,5 @@
+import { showMenuMobile, darkLightMode } from "./functions.js"; 
+
 const TabNavigation = () => {
    const tabLinks = [...document.querySelector('.tab-links').children];
    const contents = [...document.querySelector('.tab-content').children]; 
@@ -46,4 +48,6 @@ const TabNavigation = () => {
    return init();
 }
 
+showMenuMobile();
+darkLightMode();
 TabNavigation();

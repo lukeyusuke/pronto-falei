@@ -2,6 +2,14 @@
 @use '../../modules/displays';
 @use '../../modules/mixins';
 
+body.dark{
+   .tab-links{
+      button{
+         color: variables.$primary-color;
+      }
+   }
+}
+
 .register-login{
    @extend %box-size;
 }
@@ -27,6 +35,10 @@
          width: 120px;
 
          &:hover{
+            color: variables.$secondary-color;
+         }
+
+         &.active{
             color: variables.$secondary-color;
          }
 

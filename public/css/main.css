@@ -235,14 +235,6 @@ body.dark .introduce-content {
   padding: 1rem 0;
 }
 
-body.dark .talk-us-content__form {
-  color: #FFFFFF;
-}
-body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__box textarea {
-  color: #FFFFFF;
-  background-color: black;
-}
-
 .talk-us-content {
   padding: 2rem 4rem 6rem 4rem;
   display: flex;
@@ -349,6 +341,10 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
     gap: 0rem;
   }
 }
+body.dark .tab-links button {
+  color: #FFFFFF;
+}
+
 .tabs {
   padding: 1.5rem 5rem;
 }
@@ -370,6 +366,9 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
   width: 120px;
 }
 .tabs .tab-links__login:hover, .tabs .tab-links__signup:hover {
+  color: #EF4056;
+}
+.tabs .tab-links__login.active, .tabs .tab-links__signup.active {
   color: #EF4056;
 }
 .tabs .tab-links__login::after, .tabs .tab-links__signup::after {
@@ -401,6 +400,16 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
 }
 body.dark .line {
   background-color: rgb(34, 34, 34);
+}
+body.dark .form-content .form__box {
+  color: #FFFFFF;
+}
+body.dark .form-content .form__box input, body.dark .form-content .form__box textarea, body.dark .form-content .form__box select {
+  color: #FFFFFF;
+  background-color: black;
+}
+body.dark span {
+  color: #FFFFFF;
 }
 
 .section-title {

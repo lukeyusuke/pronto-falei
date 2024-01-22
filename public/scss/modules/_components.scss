@@ -6,6 +6,21 @@ body.dark{
    .line{
       background-color: rgba(34, 34, 34, 1);
    }
+
+   .form-content{
+      .form__box{
+         color: variables.$primary-color;
+   
+         input, textarea, select{
+            color: variables.$primary-color;
+            background-color: black;
+         }
+      }
+   }
+
+   span{
+      color: variables.$primary-color
+   }
 }
 
 .btn{

@@ -2,21 +2,6 @@
 @use '../../modules/displays';
 @use '../../modules/mixins';
 
-body.dark{
-   .talk-us-content{
-      &__form{
-         color: variables.$primary-color;
-
-         &__box{
-            input, textarea{
-               color: variables.$primary-color;
-               background-color: black;
-            }
-         }
-      }
-   }
-}
-
 .talk-us-content{
    padding: 2rem 4rem 6rem 4rem;
    display: flex;

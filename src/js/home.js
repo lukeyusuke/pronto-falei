@@ -1,19 +1,4 @@
-const showMenuMobile = () => {
-   const menuIcon = document.querySelector('.header-content__icon');
-   const navMenu = document.querySelector('.header-content__nav');
-
-   menuIcon.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-   })
-}
-
-const darkLightMode = () => {
-   const moon = document.querySelector('.moon');
-
-   moon.addEventListener('click', () => {
-      document.body.classList.toggle("dark");
-   })
-}
+import { showMenuMobile, darkLightMode } from "./functions.js"; 
 
 const sendEmail = () => {
    const form = document.querySelector('.talk-us-content__form')
@@ -56,7 +41,7 @@ const sendEmail = () => {
             input.value = ' ';
          })
       }
-   }
+   };
 
    const handleErrorData = (data) => {
       switch(data.error) {
@@ -73,7 +58,7 @@ const sendEmail = () => {
             errorMessage[2].classList.add('active');
          break;
       } 
-   }
+   };
 
    submitForm();
 }
