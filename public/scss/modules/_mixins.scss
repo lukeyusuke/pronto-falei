@@ -8,4 +8,10 @@
    @media(max-width: 690px){
       @content
    }
+};
+
+@mixin second-small-screen{
+   @media(max-width: 768px){
+      @content
+   }
 }

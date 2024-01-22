@@ -1,7 +1,7 @@
+@use '../../modules/mixins';
+
 .sign-up{
-   display: none;
    width: 70%;
-   padding: 1rem;
 
    .form-content{
       .btn{
@@ -20,5 +20,23 @@
 
    span{
       margin-bottom: 2.5rem;
+   }
+}
+
+@include mixins.second-small-screen{
+   .sign-up{
+      width: 80%;
+
+      .flex-content{
+         flex-direction: column;
+         gap: 0rem;
+      }
+
+      .input-content:nth-child(2){
+         .form__box:nth-child(1){
+            margin: 0;
+         }
+      }
+
    }
 }

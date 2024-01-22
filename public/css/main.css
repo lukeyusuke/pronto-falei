@@ -303,12 +303,15 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
 .sign-in, .sign-up {
   margin: 0 auto;
   padding: 3rem 0;
-  width: 40%;
 }
 .sign-in .section-title, .sign-up .section-title {
   padding: 2rem 0;
 }
 
+.sign-in {
+  display: none;
+  width: 40%;
+}
 .sign-in .form-content .btn {
   margin: 5rem auto 1.75rem auto;
 }
@@ -316,10 +319,13 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
   margin-bottom: 1rem;
 }
 
+@media (max-width: 768px) {
+  .sign-in {
+    width: 80%;
+  }
+}
 .sign-up {
-  display: none;
   width: 70%;
-  padding: 1rem;
 }
 .sign-up .form-content .btn {
   margin: 2rem auto 1.5rem auto;
@@ -335,6 +341,18 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
   margin-bottom: 2.5rem;
 }
 
+@media (max-width: 768px) {
+  .sign-up {
+    width: 80%;
+  }
+  .sign-up .flex-content {
+    flex-direction: column;
+    gap: 0rem;
+  }
+  .sign-up .input-content:nth-child(2) .form__box:nth-child(1) {
+    margin: 0;
+  }
+}
 .tabs {
   padding: 1.5rem 5rem;
 }
@@ -372,10 +390,19 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
   width: 100%;
 }
 .tabs .line {
-  width: 50%;
+  width: 40%;
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .tabs .tab-links {
+    gap: 0;
+  }
+  .tabs .line {
+    width: 72%;
+    margin: 0 auto;
+  }
+}
 body.dark .line {
   background-color: rgb(34, 34, 34);
 }
