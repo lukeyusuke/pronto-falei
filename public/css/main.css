@@ -300,57 +300,54 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
     margin: 1.5rem 0;
   }
 }
-.sign-in, .sign-up {
+#sign-in, #sign-up {
   margin: 0 auto;
   padding: 3rem 0;
 }
-.sign-in .section-title, .sign-up .section-title {
-  padding: 2rem 0;
-}
 
-.sign-in {
-  display: none;
+#sign-in {
   width: 40%;
 }
-.sign-in .form-content .btn {
+#sign-in .section-title {
+  padding: 0 0 4rem 0;
+}
+#sign-in .form-content .btn {
   margin: 5rem auto 1.75rem auto;
 }
-.sign-in span {
+#sign-in span {
   margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
-  .sign-in {
+  #sign-in {
     width: 80%;
   }
 }
-.sign-up {
+#sign-up {
+  display: none;
   width: 70%;
 }
-.sign-up .form-content .btn {
+#sign-up .form-content .btn {
   margin: 2rem auto 1.5rem auto;
 }
-.sign-up .flex-content {
+#sign-up .flex-content {
   display: flex;
   gap: 3rem;
 }
-.sign-up .flex-content .input-content {
+#sign-up .flex-content .input-content {
   width: 100%;
 }
-.sign-up span {
+#sign-up span {
   margin-bottom: 2.5rem;
 }
 
 @media (max-width: 768px) {
-  .sign-up {
+  #sign-up {
     width: 80%;
   }
-  .sign-up .flex-content {
+  #sign-up .flex-content {
     flex-direction: column;
     gap: 0rem;
-  }
-  .sign-up .input-content:nth-child(2) .form__box:nth-child(1) {
-    margin: 0;
   }
 }
 .tabs {
@@ -416,7 +413,7 @@ body.dark .line {
 }
 
 .form-content .form__box {
-  margin: 3rem 0;
+  margin-bottom: 3rem;
 }
 .form-content .form__box label {
   display: inline-block;
