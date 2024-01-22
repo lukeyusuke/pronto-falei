@@ -319,8 +319,8 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
 }
 
 @media (max-width: 768px) {
-  #sign-in {
-    width: 80%;
+  #login {
+    width: 100%;
   }
 }
 #sign-up {
@@ -342,7 +342,7 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
 
 @media (max-width: 768px) {
   #sign-up {
-    width: 80%;
+    width: 100%;
   }
   #sign-up .flex-content {
     flex-direction: column;
