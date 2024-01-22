@@ -1,0 +1,21 @@
+.sign-in, .sign-up{
+   margin: 0 auto;
+   padding: 3rem 0;
+   width: 40%;
+
+   .section-title{
+      padding: 2rem 0;
+   }
+}
+
+.sign-in {
+   .form-content{
+      .btn{
+         margin: 5rem auto 1.75rem auto;
+      }
+   }
+
+   span{
+      margin-bottom: 1rem;
+   }
+}

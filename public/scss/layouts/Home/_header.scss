@@ -3,10 +3,14 @@
 @use '../../modules/displays';
 @use '../../modules/mixins';
 
-#header, #introduce, #about-us, #talk-us, #footer{
+#header, #introduce, #about-us, #talk-us, #footer, #account-content{
    @extend %center-display;
    font-family: 'Inter', sans-serif;
 }
+
+.header-content, .introduce-content, .about-us-content, .talk-us-content{
+   @extend %box-size;
+} 
 
 body.dark {
    .logo, .header-content__menu__item a{
@@ -27,7 +31,6 @@ body.dark {
 }
 
 .header-content{
-   @extend %box-size;
    @extend %default-display;
    padding: 1.5rem 2rem;
 

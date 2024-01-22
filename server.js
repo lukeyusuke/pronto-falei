@@ -15,8 +15,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'src')));
 
 app.set('views', [
+   path.resolve(__dirname, 'src', 'views', 'Login'),
    path.resolve(__dirname, 'src', 'views', 'Home'),
-   path.resolve(__dirname, 'src', 'views', 'Login')
 ])
 
 app.set('view engine', 'ejs');

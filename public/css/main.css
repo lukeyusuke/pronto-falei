@@ -14,6 +14,15 @@ h1, h2, h3, h4 {
   font-family: "Inter", sans-serif;
 }
 
+h3 {
+  text-align: center;
+}
+
+span {
+  display: block;
+  text-align: center;
+}
+
 p {
   color: rgba(34, 34, 34, 0.8);
   font-family: "Istok Web", sans-serif;
@@ -70,12 +79,12 @@ input, textarea {
   color: #FFFFFF;
 }
 
-#header, #introduce, #about-us, #talk-us, #footer {
+#header, #introduce, #about-us, #talk-us, #footer, #account-content {
   display: flex;
   justify-content: center;
 }
 
-.footer-content, .talk-us-content, .about-us-content, .introduce-content, .header-content {
+.register-login, .footer-content, .talk-us-content, .about-us-content, .introduce-content, .header-content {
   width: 100%;
   max-width: 1366px;
 }
@@ -87,7 +96,7 @@ input, textarea {
   justify-content: space-between;
 }
 
-#header, #introduce, #about-us, #talk-us, #footer {
+#header, #introduce, #about-us, #talk-us, #footer, #account-content {
   font-family: "Inter", sans-serif;
 }
 
@@ -179,13 +188,6 @@ body.dark .introduce-content {
 .about-us-content {
   padding: 1rem 4rem 6rem 4rem;
 }
-.about-us-content__title {
-  text-align: center;
-  padding: 2.5rem 0;
-}
-.about-us-content__title__p {
-  padding: 2rem 0 2.5rem 0;
-}
 
 .about-us__info {
   text-align: justify;
@@ -247,63 +249,9 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
   flex-direction: column;
   align-items: center;
 }
-.talk-us-content__title {
-  text-align: center;
-  padding: 2.5rem 0;
-}
-.talk-us-content__title__p {
-  padding: 2rem 0 2rem 0;
-}
 .talk-us-content__form {
   width: 45%;
   font-family: "Inter", sans-serif;
-}
-.talk-us-content__form__btn {
-  display: block;
-  margin: 0 auto;
-}
-.talk-us-content__form__box + .talk-us-content__form__box {
-  margin-top: 3rem;
-}
-.talk-us-content__form__box label {
-  display: inline-block;
-  margin-bottom: 0.4rem;
-}
-.talk-us-content__form__box input, .talk-us-content__form__box textarea {
-  border: 1px solid rgba(34, 34, 34, 0.3019607843);
-  border-radius: 0.5rem;
-  font-family: "Istok Web", sans-serif;
-  padding-left: 1rem;
-  width: 100%;
-  height: 55px;
-}
-.talk-us-content__form__box input:focus, .talk-us-content__form__box textarea:focus {
-  border: 1px solid #EF4056;
-}
-.talk-us-content__form__box textarea {
-  padding-top: 1rem;
-  height: 150px;
-  resize: none;
-}
-.talk-us-content__form .error-message {
-  color: #f03e3e;
-  margin-top: 0.5rem;
-  display: none;
-}
-.talk-us-content__form .error-message.active {
-  display: block;
-}
-.talk-us-content__form .success-message {
-  color: #59b366;
-  margin-top: 0.5rem;
-  display: none;
-}
-.talk-us-content__form .success-message.active {
-  display: block;
-}
-.talk-us-content__form__btn {
-  padding: 1.25rem 4.5rem;
-  margin-top: 4rem;
 }
 
 @media (max-width: 690px) {
@@ -352,8 +300,140 @@ body.dark .talk-us-content__form__box input, body.dark .talk-us-content__form__b
     margin: 1.5rem 0;
   }
 }
+.sign-in, .sign-up {
+  margin: 0 auto;
+  padding: 3rem 0;
+  width: 40%;
+}
+.sign-in .section-title, .sign-up .section-title {
+  padding: 2rem 0;
+}
+
+.sign-in .form-content .btn {
+  margin: 5rem auto 1.75rem auto;
+}
+.sign-in span {
+  margin-bottom: 1rem;
+}
+
+.sign-up {
+  display: none;
+  width: 70%;
+  padding: 1rem;
+}
+.sign-up .form-content .btn {
+  margin: 2rem auto 1.5rem auto;
+}
+.sign-up .flex-content {
+  display: flex;
+  gap: 3rem;
+}
+.sign-up .flex-content .input-content {
+  width: 100%;
+}
+.sign-up span {
+  margin-bottom: 2.5rem;
+}
+
+.tabs {
+  padding: 1.5rem 5rem;
+}
+.tabs .tab-links {
+  padding: 3rem 1rem 0 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+.tabs .tab-links__login, .tabs .tab-links__signup {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  padding: 1rem;
+  transition: 0.2s;
+  position: relative;
+  width: 120px;
+}
+.tabs .tab-links__login:hover, .tabs .tab-links__signup:hover {
+  color: #EF4056;
+}
+.tabs .tab-links__login::after, .tabs .tab-links__signup::after {
+  content: "";
+  background-color: #EF4056;
+  height: 2px;
+  position: absolute;
+  top: 3.2rem;
+  left: 0;
+  width: 0;
+  transition: 0.3s;
+}
+.tabs .tab-links__login:hover::after, .tabs .tab-links__login.active::after, .tabs .tab-links__signup:hover::after, .tabs .tab-links__signup.active::after {
+  width: 100%;
+}
+.tabs .line {
+  width: 50%;
+  margin: 0 auto;
+}
+
 body.dark .line {
   background-color: rgb(34, 34, 34);
+}
+
+.section-title {
+  padding: 2.5rem 0;
+}
+.section-title__p {
+  padding: 2rem 0 2.5rem 0;
+  text-align: center;
+}
+
+.form-content .form__box {
+  margin: 3rem 0;
+}
+.form-content .form__box label {
+  display: inline-block;
+  margin-bottom: 0.4rem;
+}
+.form-content .form__box input, .form-content .form__box textarea, .form-content .form__box select {
+  border: 1px solid rgba(34, 34, 34, 0.3019607843);
+  border-radius: 0.5rem;
+  font-family: "Istok Web", sans-serif;
+  padding-left: 1rem;
+  width: 100%;
+  height: 55px;
+  outline: 0;
+}
+.form-content .form__box input:focus, .form-content .form__box textarea:focus, .form-content .form__box select:focus {
+  border: 1px solid #EF4056;
+}
+.form-content .form__box textarea {
+  padding-top: 1rem;
+  height: 150px;
+  resize: none;
+}
+.form-content .btn {
+  display: block;
+  margin: 4rem auto 0 auto;
+  padding: 1.25rem 4.5rem;
+}
+
+.error-message {
+  color: #f03e3e;
+  margin-top: 0.5rem;
+  display: none;
+}
+.error-message.active {
+  display: block;
+}
+
+.success-message {
+  color: #59b366;
+  margin-top: 0.5rem;
+  display: none;
+}
+.success-message.active {
+  display: block;
 }
 
 .line {

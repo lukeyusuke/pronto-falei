@@ -1,0 +1,24 @@
+.sign-up{
+   display: none;
+   width: 70%;
+   padding: 1rem;
+
+   .form-content{
+      .btn{
+         margin: 2rem auto 1.5rem auto;
+      }
+   }
+
+   .flex-content {
+      display: flex;
+      gap: 3rem;
+
+      .input-content{
+         width: 100%;
+      }
+   }
+
+   span{
+      margin-bottom: 2.5rem;
+   }
+}
