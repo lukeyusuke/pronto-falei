@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import path from 'path';
 import url from 'url';
@@ -6,7 +7,6 @@ import bodyParser from 'body-parser';
 const app = express();
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
-
 app.use(express.urlencoded({extended: true}));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());

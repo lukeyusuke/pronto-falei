@@ -1,8 +1,8 @@
 import { showMenuMobile, darkLightMode } from "./functions.js"; 
 
 const sendEmail = () => {
-   const form = document.querySelector('.talk-us-content__form')
-   const inputBox = document.querySelectorAll('.input-box');
+   const form = document.querySelector('.talk-us-content__form');
+   const inputBox = document.querySelectorAll('.form__box__input-box');
    const errorMessage = document.querySelectorAll('.error-message');
    const successMessage = document.querySelector('.success-message');
 
