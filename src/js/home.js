@@ -44,20 +44,14 @@ const sendEmail = () => {
    };
 
    const handleErrorData = (data) => {
-      switch(data.error) {
-         case 'Nome inválido':
-            errorMessage[0].textContent = data.error;
-            errorMessage[0].classList.add('active');
-         break;
-         case 'Email inválido':
-            errorMessage[1].textContent = data.error;
-            errorMessage[1].classList.add('active');
-         break;
-         case 'Digite sua mensagem':
-            errorMessage[2].textContent = data.error;
-            errorMessage[2].classList.add('active');
-         break;
-      } 
+      const errorMessages = ['Nome inválido', 'Email inválido', 'Digite sua mensagem'];
+
+      errorMessages.filter((errorTextMessage, i) => {
+         if(errorTextMessage === data.error){
+            errorMessage[i].textContent = data.error;
+            errorMessage[i].classList.add('active');
+         }
+      })
    };
 
    submitForm();

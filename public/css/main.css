@@ -328,6 +328,9 @@ body.dark .introduce-content {
 #sign-up .flex-content .input-content {
   width: 100%;
 }
+#sign-up .success-message {
+  text-align: center;
+}
 #sign-up span {
   margin-bottom: 2.5rem;
 }
