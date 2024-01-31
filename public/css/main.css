@@ -430,6 +430,16 @@ body.dark span {
   display: inline-block;
   margin-bottom: 0.4rem;
 }
+.form-content .form__box__input {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.form-content .form__box__input svg {
+  cursor: pointer;
+  position: absolute;
+  right: 0.5rem;
+}
 .form-content .form__box input, .form-content .form__box textarea, .form-content .form__box select {
   border: 1px solid rgba(34, 34, 34, 0.3019607843);
   border-radius: 0.5rem;

@@ -48,6 +48,19 @@ const TabNavigation = () => {
    return init();
 }
 
+const showHidePassword = () => {
+   const passwordInput = document.getElementById('senha'); 
+   const eyeIcon = document.querySelector('.eye-icon');
+
+   eyeIcon.addEventListener('click', () => {
+      if(passwordInput.type === 'password'){
+         passwordInput.type = 'text';
+      } else {
+         passwordInput.type = 'password';
+      }
+   })
+}
+
 const createUser = () => {
    const form = document.querySelector('.talk-us-content__form');
    const inputBox = document.querySelectorAll('.form__box__input-box');
@@ -108,4 +121,5 @@ const createUser = () => {
 showMenuMobile();
 darkLightMode();
 TabNavigation();
+showHidePassword();
 createUser();
