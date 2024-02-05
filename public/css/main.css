@@ -311,11 +311,16 @@ body.dark .introduce-content {
 
 @media (max-width: 768px) {
   #login {
-    width: 100%;
+    width: 90%;
   }
 }
 #sign-up {
   width: 70%;
+  font-family: "Inter", sans-serif;
+  margin: 0 auto;
+}
+#sign-up .section-title {
+  padding: 5rem 0 4rem 0;
 }
 #sign-up .form-content .btn {
   margin: 2rem auto 1.5rem auto;
@@ -336,7 +341,7 @@ body.dark .introduce-content {
 
 @media (max-width: 768px) {
   #sign-up {
-    width: 100%;
+    width: 90%;
   }
   #sign-up .flex-content {
     flex-direction: column;
@@ -358,10 +363,6 @@ body.dark span {
 }
 
 .section-title {
-  padding: 2.5rem 0;
-}
-.section-title__p {
-  padding: 2rem 0 2.5rem 0;
   text-align: center;
 }
 
