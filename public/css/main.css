@@ -21,6 +21,7 @@ h3 {
 span {
   display: block;
   text-align: center;
+  font-family: "Inter";
 }
 
 p {
@@ -84,7 +85,7 @@ input, textarea {
   justify-content: center;
 }
 
-.register-login, .footer-content, .talk-us-content, .about-us-content, .introduce-content, .header-content {
+.footer-content, .talk-us-content, .about-us-content, .introduce-content, .header-content {
   width: 100%;
   max-width: 1366px;
 }
@@ -292,16 +293,14 @@ body.dark .introduce-content {
     margin: 1.5rem 0;
   }
 }
-#login, #sign-up {
+#login {
+  font-family: "Inter", sans-serif;
   margin: 0 auto;
   padding: 3rem 0;
-}
-
-#login {
   width: 40%;
 }
 #login .section-title {
-  padding: 0 0 4rem 0;
+  padding: 2rem 0 4rem 0;
 }
 #login .form-content .btn {
   margin: 5rem auto 1.75rem auto;
@@ -342,63 +341,6 @@ body.dark .introduce-content {
   #sign-up .flex-content {
     flex-direction: column;
     gap: 0rem;
-  }
-}
-body.dark .tab-links button {
-  color: #FFFFFF;
-}
-
-.tabs {
-  padding: 1.5rem 5rem;
-}
-.tabs .tab-links {
-  padding: 3rem 1rem 0 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 4rem;
-}
-.tabs .tab-links__login, .tabs .tab-links__signup {
-  background-color: transparent;
-  border: 0;
-  cursor: pointer;
-  font-family: "Inter", sans-serif;
-  font-size: 1rem;
-  padding: 1rem;
-  transition: 0.2s;
-  position: relative;
-  width: 120px;
-}
-.tabs .tab-links__login:hover, .tabs .tab-links__signup:hover {
-  color: #EF4056;
-}
-.tabs .tab-links__login.active, .tabs .tab-links__signup.active {
-  color: #EF4056;
-}
-.tabs .tab-links__login::after, .tabs .tab-links__signup::after {
-  content: "";
-  background-color: #EF4056;
-  height: 2px;
-  position: absolute;
-  top: 3.2rem;
-  left: 0;
-  width: 0;
-  transition: 0.3s;
-}
-.tabs .tab-links__login:hover::after, .tabs .tab-links__login.active::after, .tabs .tab-links__signup:hover::after, .tabs .tab-links__signup.active::after {
-  width: 100%;
-}
-.tabs .line {
-  width: 40%;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .tabs .tab-links {
-    gap: 0;
-  }
-  .tabs .line {
-    width: 72%;
-    margin: 0 auto;
   }
 }
 body.dark .line {

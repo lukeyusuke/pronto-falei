@@ -1,15 +1,13 @@
 @use '../../modules/mixins';
 
-#login, #sign-up{
+#login {
+   font-family: 'Inter', sans-serif;
    margin: 0 auto;
    padding: 3rem 0;
-}
-
-#login {
    width: 40%;
 
    .section-title{
-      padding: 0 0 4rem 0;
+      padding: 2rem 0 4rem 0;
    }
    
    .form-content{

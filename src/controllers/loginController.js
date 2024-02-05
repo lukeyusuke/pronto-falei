@@ -9,8 +9,19 @@ export const searchAllUsers = (req, res) => {
    const login = new Login();
 
    login.listUsers()
-      .then(users => res.json(users))
+      .then((users) => res.json(users))
       .catch(err => console.log(err));
+}
+
+export const loginUser = (req, res) => {
+   const login = new Login();
+
+   const { signin_email, user_password_signin } = req.body;
+
+   login.checkEmailPasswordExists(signin_email, user_password_signin)
+      .then((data) => {
+         console.log(data);
+      })
 }
 
 export const createUser = (req, res) => {
@@ -21,6 +32,7 @@ export const createUser = (req, res) => {
 
    login.checkEmailExists(signup_email)
       .then((emailExists) => {
+         console.log(emailExists);
          let userEmail = emailExists.shift();
 
          login.checkPhoneNumberExists(tel)

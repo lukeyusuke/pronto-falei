@@ -17,7 +17,7 @@ class Login{
       
       return new Promise((resolve, reject) => {
          databaseConnection.query(sql, (err, result) => {
-            if(err) console.log('Deu ruim');
+            if(err) console.log('Não deu pra concluir o cadastro do usuário');
             resolve(result);
          })
       })   
@@ -28,29 +28,33 @@ class Login{
 
       return new Promise((resolve, reject) => {
          databaseConnection.query(sql, (err, result) => {
-            if(err) console.log('Deu ruim no email boy');
+            if(err) console.log('Deu ruim na consulta ao BD');
             resolve(result);
          })
       })
    }
 
    checkPhoneNumberExists(tel){
-      const sql = `SELECT tel from users WHERE tel = '${tel}'`
+      const sql = `SELECT email, tel from users WHERE tel = '${tel}'`
 
       return new Promise((resolve, reject) => {
          databaseConnection.query(sql, (err, result) => {
-            if(err) console.log('Deu ruim no email boy');
+            if(err) console.log('Deu ruim na consulta ao BD');
+            resolve(result);
+         })
+      })
+   }
+
+   checkEmailPasswordExists(email, user_password){
+      const sql = `SELECT email, user_password from users WHERE email = '${email}' AND user_password = '${user_password}'`
+
+      return new Promise((resolve, reject) => {
+         databaseConnection.query(sql, (err, result) => {
+            if(err) console.log('Deu ruim na consulta ao BD');
             resolve(result);
          })
       })
    }
 }
-
-// 1 - Percorrer o BD para verificar se o email já existe
-// 2 - Caso exista, enviar uma resposta para loginController
-// 3 - Caso não exista, não enviar nada e deixar como está
-
-// 1 - Posso fazer a condicional no Model (resolver diretamente no model)
-// 1 - Posso chamar o método separado e chamar no login-register (esse é oq eu quero)
 
 export default Login;
