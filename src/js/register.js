@@ -1,32 +1,31 @@
-import { showMenuMobile, darkLightMode } from "./functions.js"; 
+import { showMenuMobile, darkLightMode } from "./functions.js";
 
-const sendEmail = () => {
-   const form = document.querySelector('.talk-us-content__form');
-   const inputBox = document.querySelectorAll('.form__box__input-box');
+const createUser = () => {
+   const signupForm = document.querySelector('.sign-up__form');
+   const inputSignup = document.querySelectorAll('.input-signup');
    const errorMessage = document.querySelectorAll('.error-message');
    const successMessage = document.querySelector('.success-message');
 
-   const submitForm = () => {
-      form.addEventListener('submit', (e) => {
+   const submitSignUpForm = () => {
+      signupForm.addEventListener('submit', (e) => {
          e.preventDefault();
-         const formData = new FormData(form);
-      
-         fetch('/', {
+         const formData = new FormData(signupForm);
+
+         fetch('/login', {
             method: 'POST',
             headers: {
                'Content-Type': 'application/json;charset=UTF-8'
             },
             body: JSON.stringify(Object.fromEntries(formData))
          }).then(handleResponse)
-         .catch((err) => {
-            console.log(err);
-         })
+         .catch(err => console.log(err));
       })
    }
 
    const handleResponse = (response) => {
+      console.log('Criando usuário...')
       const errorMessages = [...errorMessage.values()];
-      const inputs = [...inputBox.values()];
+      const inputs = [...inputSignup.values()];
 
       successMessage.classList.remove('active');
       errorMessages.map((error) => {
@@ -42,9 +41,9 @@ const sendEmail = () => {
          })
       }
    };
-
+   
    const handleErrorData = (data) => {
-      const errorMessages = ['Nome inválido', 'Email inválido', 'Digite sua mensagem'];
+      const errorMessages = ['Nome inválido', 'Email inválido', 'Este email já está em uso', 'Senha inválida', 'Telefone inválido', 'Este telefone já está em uso', 'Coloque sua data de nascimento!', 'Selecione um gênero!'];
 
       errorMessages.filter((errorTextMessage, i) => {
          if(errorTextMessage === data.error){
@@ -54,9 +53,13 @@ const sendEmail = () => {
       })
    };
 
-   submitForm();
+   submitSignUpForm();
 }
 
-showMenuMobile();
-darkLightMode();
-sendEmail();
+const init = () => {
+   showMenuMobile();
+   darkLightMode();
+   createUser();
+}
+
+init();

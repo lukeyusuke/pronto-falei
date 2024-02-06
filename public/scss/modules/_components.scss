@@ -28,12 +28,7 @@ body.dark{
 }
 
 .section-title{
-   padding: 2.5rem 0;
-
-   &__p{
-      padding: 2rem 0 2.5rem 0;
-      text-align: center;
-   }
+   text-align: center;
 }
 
 .form-content{
@@ -47,6 +42,18 @@ body.dark{
          margin-bottom: .4rem;
       }
    
+      &__input{
+         display: flex;
+         align-items: center;
+         position: relative;
+
+         svg{
+            cursor: pointer;
+            position: absolute;
+            right: .5rem;
+         }
+      }
+
       input, textarea, select{
          border: 1px solid variables.$line-color;
          border-radius: .5rem;

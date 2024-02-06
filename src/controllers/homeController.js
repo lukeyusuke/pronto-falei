@@ -1,11 +1,12 @@
 import nodeMailer from 'nodemailer';
+import { validateName, validateEmail, checkWhiteSpace } from '../components/formFunctions/functions.js';
 
 export const homeIndex = (req, res) => {
    res.render('index');
 }
 
 export const homeSendEmail = (req, res) => {
-   const { nome, email, mensagem } = req.body;
+   const { nome, signup_email, mensagem } = req.body;
 
    let transporter = nodeMailer.createTransport({
       service: 'gmail',
@@ -20,7 +21,7 @@ export const homeSendEmail = (req, res) => {
    })
 
    const configEmail = {
-      from: `${nome} <${email}>`,
+      from: `${nome} <${signup_email}>`,
       to: 'projetostestando@gmail.com',
       subject: 'Feedback - Pronto, Falei',
       text: mensagem,
@@ -29,26 +30,11 @@ export const homeSendEmail = (req, res) => {
    const validateForm = () => {
       let error;
 
-      const validateName = (nome) => {
-         const regex = /[0-9]/;
-         return regex.test(nome);
-      }
-
-      const validateEmail = (email) => {
-         const regex = /\S+@\S+\.\S+/;
-         return regex.test(email)
-      }
-
-      const checkWhiteSpace = (valor) => {
-         const regex = /\S/;
-         return regex.test(valor);
-      }
-
       if(validateName(nome) || (nome.length <= 3) || (!checkWhiteSpace(nome))){
          error = 'Nome inválido';
          res.status(400).json({ error });
 
-      } else if(!validateEmail(email)){
+      } else if(!validateEmail(signup_email)){
          error = 'Email inválido'
          res.status(400).json({ error });
 
