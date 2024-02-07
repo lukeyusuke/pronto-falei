@@ -2,7 +2,7 @@ import { showMenuMobile, darkLightMode } from "./functions.js";
 
 const createUser = () => {
    const signupForm = document.querySelector('.sign-up__form');
-   const inputSignup = document.querySelectorAll('.input-signup');
+   const inputSignup = document.querySelectorAll('.form__box__input-box');
    const errorMessage = document.querySelectorAll('.error-message');
    const successMessage = document.querySelector('.success-message');
 
@@ -11,7 +11,7 @@ const createUser = () => {
          e.preventDefault();
          const formData = new FormData(signupForm);
 
-         fetch('/login', {
+         fetch('/register', {
             method: 'POST',
             headers: {
                'Content-Type': 'application/json;charset=UTF-8'
@@ -23,7 +23,6 @@ const createUser = () => {
    }
 
    const handleResponse = (response) => {
-      console.log('Criando usuário...')
       const errorMessages = [...errorMessage.values()];
       const inputs = [...inputSignup.values()];
 

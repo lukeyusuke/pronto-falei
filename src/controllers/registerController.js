@@ -1,4 +1,5 @@
-import { validateName, validateEmail, checkWhiteSpace, validatePhoneNumber } from '../components/formFunctions/functions.js';
+import Login from '../models/loginModel.js';
+import { validateName, validateEmail, checkWhiteSpace, validatePhoneNumber } from '../components/regexFunctions/functions.js';
 
 export const registerPage = (req, res) => {
    res.render('register');
@@ -7,29 +8,26 @@ export const registerPage = (req, res) => {
 export const createUser = (req, res) => {
    const login = new Login();
 
-   const { username, signup_email, user_password, tel, dt_birth, genre }  = req.body;
+   const { username, email, user_password, tel, dt_birth, genre }  = req.body;
    let error;
 
-   login.checkEmailExists(signup_email)
+   login.checkEmailExists(email)
       .then((emailExists) => {
-         console.log(emailExists);
          let userEmail = emailExists.shift();
 
          login.checkPhoneNumberExists(tel)
             .then((phoneNumberExists) => {
-               let userPhone = phoneNumberExists.shift(); 
+               let userPhone = phoneNumberExists.shift();
 
-               login.create(username, signup_email, user_password, tel, dt_birth, genre)
+               login.create(username, email, user_password, tel, dt_birth, genre)
                   .then(() => {
                      if(validateName(username) || (username.length <= 3) || (!checkWhiteSpace(username))){
                         error = 'Nome inválido';
                         res.status(400).json({ error });
-                        console.log(error);
                
-                     } else if(!validateEmail(signup_email)){
+                     } else if(!validateEmail(email)){
                         error = 'Email inválido'
                         res.status(400).json({ error });
-                        console.log(error);
       
                      } else if(userEmail){
                         error = 'Este email já está em uso';

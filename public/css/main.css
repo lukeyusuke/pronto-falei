@@ -358,6 +358,9 @@ body.dark .form-content .form__box input, body.dark .form-content .form__box tex
   color: #FFFFFF;
   background-color: black;
 }
+body.dark .section-title {
+  color: #FFFFFF;
+}
 body.dark span {
   color: #FFFFFF;
 }

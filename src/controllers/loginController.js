@@ -14,13 +14,19 @@ export const searchAllUsers = (req, res) => {
 
 export const loginUser = (req, res) => {
    const login = new Login();
+   const { email, user_password } = req.body;
+   let error;
 
-   const { signin_email, user_password_signin } = req.body;
-
-   login.checkEmailPasswordExists(signin_email, user_password_signin)
+   login.checkEmailPasswordExists(email, user_password)
       .then((data) => {
-         console.log(data);
-      })
+         const dataUser = data.shift();
+         if(!dataUser){
+            error = 'Usuário e/ou senha inválido';
+            res.status(400).json({ error });
+         } else {
+            res.status(200).json();
+         }
+      }).catch(err => console.log(err));
 }
 
 export const updateUser = (req, res) => {

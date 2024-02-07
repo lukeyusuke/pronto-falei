@@ -18,6 +18,10 @@ body.dark{
       }
    }
 
+   .section-title {
+      color: variables.$primary-color;
+   }
+
    span{
       color: variables.$primary-color
    }
