@@ -1,7 +1,7 @@
 import Login from '../models/loginModel.js';
 
 export const loginPage = (req, res) => {
-   res.render('login');
+   res.render('login'); 
 }
 
 export const searchAllUsers = (req, res) => {

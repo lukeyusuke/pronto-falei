@@ -1,5 +1,5 @@
 import Login from '../models/loginModel.js';
-import { validateName, validateEmail, checkWhiteSpace, validatePhoneNumber } from '../components/regexFunctions/functions.js';
+import { validateName, validateEmail, checkWhiteSpace, validatePhoneNumber } from '../components/js/regexFunctions/functions.js';
 
 export const registerPage = (req, res) => {
    res.render('register');

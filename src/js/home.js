@@ -1,4 +1,4 @@
-import { showMenuMobile, darkLightMode } from "./functions.js"; 
+import { showMenuMobile, darkLightMode } from "../components/js/screenFunctions/screenFunctions.js";
 
 const sendEmail = () => {
    const form = document.querySelector('.talk-us-content__form');

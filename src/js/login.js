@@ -1,4 +1,4 @@
-import { showMenuMobile, darkLightMode } from "./functions.js";
+import { showMenuMobile, darkLightMode } from "../components/js/screenFunctions/screenFunctions.js";
 
 const showHidePassword = () => {
    const passwordInput = document.getElementById('user_password');
@@ -42,8 +42,8 @@ const checkUser = () => {
             errorMessage.textContent = data.error;
             errorMessage.classList.add('active');
          })
-      } else {
-         window.location.href = "/reports";
+      } else { 
+         window.location.href = "/vent";
          inputs.map((input) => {
             input.value = ' ';
          })

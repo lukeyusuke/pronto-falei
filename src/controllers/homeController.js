@@ -1,5 +1,5 @@
 import nodeMailer from 'nodemailer';
-import { validateName, validateEmail, checkWhiteSpace } from '../components/regexFunctions/functions.js';
+import { validateName, validateEmail, checkWhiteSpace } from '../components/js/regexFunctions/functions.js';
 
 export const homeIndex = (req, res) => {
    res.render('index');
