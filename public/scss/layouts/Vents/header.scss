@@ -1,0 +1,86 @@
+@use '../../base/variables';
+@use '../../modules/displays';
+
+.header-content{
+    position: relative;
+
+    .menu-box{
+        @extend %default-display;
+        padding-right: 3rem;
+
+        &__search {
+            position: relative;
+    
+            svg {
+                cursor: pointer;
+                position: absolute;
+                top: .65rem;
+                left: .6rem;
+            }
+    
+            input {
+                border: 1px solid variables.$github-color;
+                border-radius: 0.6rem;
+                padding: 1rem 0 1rem 2.5rem;
+                width: 320px;
+            }
+        }
+    
+        img {
+            cursor: pointer;
+            display: block;
+            margin-left: 1.5rem;
+            border-radius: 2rem;
+            width: 3.12rem;
+        }
+    
+        .dropdown-menu{
+            background-color: #D9D9D9;
+            border-radius: 1rem;
+            position: absolute;
+            right: 1.7rem;
+            top: 6rem;
+    
+            &__list{
+                display: flex;
+                flex-direction: column;
+                padding: 1.5rem;
+                display: none;
+                gap: 1.5rem;
+                align-items: center;
+
+                &-item{
+                    width: 120px;
+                }
+
+                a {
+                    display: flex;
+                    gap: .5rem;
+                    align-items: center;
+
+                    svg path, svg circle {
+                        transition: .3s;
+                    }
+    
+                    &:hover{
+                        svg path, svg circle{
+                            stroke: variables.$secondary-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        .dropdown-menu::before{
+            content: '';
+            background-color: #D9D9D9;
+            display: block;
+            position: absolute;
+            top: -.5rem;
+            transform: rotate(135deg);
+            left: 5rem;
+            height: 20px;
+            width: 20px;
+        }
+    }
+}
