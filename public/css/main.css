@@ -581,6 +581,18 @@ body.dark .introduce-content {
   color: #EF4056;
 }
 
+.footer-content {
+  display: flex;
+  align-items: center;
+  padding: 3rem 0;
+  gap: 6rem;
+  justify-content: center;
+}
+.footer-content__nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
 body.dark .line {
   background-color: rgb(34, 34, 34);
 }

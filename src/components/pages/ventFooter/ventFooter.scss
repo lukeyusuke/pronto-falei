@@ -1,0 +1,12 @@
+.footer-content{
+    display: flex;
+    align-items: center;
+    padding: 3rem 0;
+    gap: 6rem;
+    justify-content: center;
+
+    &__nav {
+        display: flex;
+        gap: 2.5rem;
+    }
+}
