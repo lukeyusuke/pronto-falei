@@ -3,3 +3,128 @@
 .main-box{
     border-left: 1px solid variables.$line-color;
 }
+
+.vent-content{
+    padding: 8rem 5rem 8rem 10rem;
+
+    .tabs {
+        .tabs-links{
+            padding-bottom: 4rem;
+
+            .line {
+                width: 80%;
+            }
+
+            button {
+                background-color: transparent;
+                font-family: 'Inter', sans-serif;
+                font-size: .9rem;
+                padding: 1rem 2rem;
+                position: relative;
+                transition: .3s;
+
+                &:first-child {
+                    margin: 0 2.25rem;
+                }
+
+                &:hover {
+                    color: variables.$secondary-color;
+                }
+
+                &:hover::before{
+                    width: 100%;
+                }
+
+                &::before {
+                    content: '';
+                    background-color: variables.$secondary-color;
+                    display: block;
+                    position: absolute;
+                    top: 3rem;
+                    left: 0;
+                    height: 1px;
+                    transition: .3s;
+                    width: 0%;
+                }
+            }
+        }
+
+        .tab-content{
+            #other-vents{
+                display: none
+            }
+
+            .vent-box {
+                box-shadow: 1px 3px 10px variables.$line-color;
+                border-radius: 1rem;
+                margin-bottom: 3rem;
+                padding: 1.5rem 2rem 2rem 2rem;
+                width: 92%;
+
+                &__header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    &__profile {
+                        display: flex;
+                        align-items: center;
+                        gap: 1.25rem;
+
+                        img {
+                            width: 3.12rem;
+                            border-radius: 2rem;
+                        }
+
+                        p {
+                            font-family: 'Inter';
+                            font-weight: 600;
+                            color: variables.$github-color;
+                        }
+                    }
+
+                    &__tags{
+                        span {
+                            background-color: red;
+                            color: variables.$primary-color;
+                            margin-left: 1rem;
+                            border-radius: 1rem;
+                            padding: .5rem 1rem;
+                        }
+                    }
+                }
+
+                &__title {
+                    padding: 1.5rem 0;
+                }
+
+                &__p {
+                    font-family: 'Inter', sans-serif;
+                    line-height: 1.75;
+                }
+            }
+
+            .other-pages {
+                text-align: center;
+                font-family: 'Inter', sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: .5rem;
+
+                svg {
+                    cursor: pointer;
+                }
+
+                a {
+                    margin: .5rem;
+
+                    &:first-child{
+                        color: variables.$secondary-color;
+                        
+                    }
+                }
+            }
+        }
+    }
+}

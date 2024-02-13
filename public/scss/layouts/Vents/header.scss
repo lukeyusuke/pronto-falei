@@ -14,14 +14,15 @@
             svg {
                 cursor: pointer;
                 position: absolute;
-                top: .65rem;
+                top: .75rem;
                 left: .6rem;
             }
     
             input {
-                border: 1px solid variables.$github-color;
+                border: 1px solid variables.$line-color;
                 border-radius: 0.6rem;
-                padding: 1rem 0 1rem 2.5rem;
+                font-family: 'Inter', sans-serif;
+                padding: 1rem 1rem 1rem 2.5rem;
                 width: 320px;
             }
         }
@@ -38,15 +39,31 @@
             background-color: #D9D9D9;
             border-radius: 1rem;
             position: absolute;
+            display: none;
             right: 1.7rem;
             top: 6rem;
+
+            &::before {
+                content: '';
+                background-color: #D9D9D9;
+                display: block;
+                position: absolute;
+                top: -.5rem;
+                transform: rotate(135deg);
+                left: 5rem;
+                height: 20px;
+                width: 20px;
+            }
+
+            &.active {
+                display: block;
+            }
     
             &__list{
                 display: flex;
                 flex-direction: column;
                 padding: 1.5rem;
-                display: none;
-                gap: 1.5rem;
+                gap: 1rem;
                 align-items: center;
 
                 &-item{
@@ -55,7 +72,7 @@
 
                 a {
                     display: flex;
-                    gap: .5rem;
+                    gap: 1rem;
                     align-items: center;
 
                     svg path, svg circle {
@@ -69,18 +86,6 @@
                     }
                 }
             }
-        }
-
-        .dropdown-menu::before{
-            content: '';
-            background-color: #D9D9D9;
-            display: none;
-            position: absolute;
-            top: -.5rem;
-            transform: rotate(135deg);
-            left: 5rem;
-            height: 20px;
-            width: 20px;
         }
     }
 }

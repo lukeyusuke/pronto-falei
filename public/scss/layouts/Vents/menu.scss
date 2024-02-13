@@ -11,8 +11,23 @@
     align-items: center;
     justify-content: space-between;
     transition: .3s;
-    height: 100%;
-    width: 120px;
+    height: 100vh;
+    width: 90px;
+
+    &.active {
+        width: 180px;
+
+        .sidebar__list {
+            &-item{
+                a {
+                
+                    span {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
 
     &__menu {
         cursor: pointer;
@@ -64,20 +79,5 @@
         text-align: center;
         padding: 2.5rem 0;
         width: 100%;
-    }
-}
-
-.sidebar-content.active{
-    width: 200px;
-
-    .sidebar__list {
-        &-item{
-            a {
-                
-                span {
-                    display: block;
-                }
-            }
-        }
     }
 }
