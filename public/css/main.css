@@ -407,13 +407,80 @@ body.dark .introduce-content {
 .header-content .menu-box .dropdown-menu::before {
   content: "";
   background-color: #D9D9D9;
-  display: block;
+  display: none;
   position: absolute;
   top: -0.5rem;
   transform: rotate(135deg);
   left: 5rem;
   height: 20px;
   width: 20px;
+}
+
+.all-content {
+  display: flex;
+}
+
+.sidebar-content {
+  border-right: 1px solid rgba(34, 34, 34, 0.3019607843);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s;
+  height: 100%;
+  width: 120px;
+}
+.sidebar-content__menu {
+  cursor: pointer;
+  margin-top: 2rem;
+}
+.sidebar-content .sidebar__list-item {
+  padding: 1rem 0;
+}
+.sidebar-content .sidebar__list-item a {
+  display: flex;
+  gap: 0.5rem;
+  border-radius: 2rem;
+  padding: 0.5rem;
+  align-items: center;
+}
+.sidebar-content .sidebar__list-item a svg path, .sidebar-content .sidebar__list-item a svg ellipse {
+  transition: 0.3s;
+}
+.sidebar-content .sidebar__list-item a:hover svg path, .sidebar-content .sidebar__list-item a:hover svg ellipse {
+  stroke: #EF4056;
+}
+.sidebar-content .sidebar__list-item a span {
+  display: none;
+}
+.sidebar-content .sidebar__list-item:first-child a {
+  background-color: rgba(239, 64, 86, 0.2);
+}
+.sidebar-content .sidebar__list-item:first-child a .active-tab {
+  color: #EF4056;
+}
+.sidebar-content .sidebar-dark-mode {
+  background: url("../../../assets/images/dark.png") no-repeat center/cover;
+  border-top: 1px solid rgba(34, 34, 34, 0.3019607843);
+  cursor: pointer;
+  text-align: center;
+  padding: 2.5rem 0;
+  width: 100%;
+}
+
+.sidebar-content.active {
+  width: 200px;
+}
+.sidebar-content.active .sidebar__list-item a span {
+  display: block;
+}
+
+.main-box {
+  border-left: 1px solid rgba(34, 34, 34, 0.3019607843);
+}
+
+.footer-content {
+  margin-left: 12.5rem;
 }
 
 body.dark .line {

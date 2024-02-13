@@ -1,0 +1,5 @@
+@use '../../base/variables';
+
+.main-box{
+    border-left: 1px solid variables.$line-color;
+}
