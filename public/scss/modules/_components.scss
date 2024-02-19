@@ -23,7 +23,7 @@ body.dark{
    }
 
    span{
-      color: variables.$primary-color
+      color: variables.$primary-color;
    }
 }
 
@@ -33,6 +33,11 @@ body.dark{
 
 .section-title{
    text-align: center;
+   padding-top: 2rem;
+
+   &__p{
+      margin: 1.75rem 0 4rem 0;
+   }
 }
 
 .form-content{

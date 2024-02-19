@@ -2,32 +2,38 @@
 
 .all-content{
     display: flex;
-}
-
-.sidebar-content{
-    border-right: 1px solid variables.$line-color;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    transition: .3s;
-    height: 100vh;
-    width: 90px;
-
+    
     &.active {
-        width: 180px;
+        .sidebar-content {
+            width: 180px;
 
-        .sidebar__list {
-            &-item{
-                a {
-                
-                    span {
-                        display: block;
+            .sidebar__list {
+                &-item {
+                    a {
+                        span {
+                            display: block;
+                        }
                     }
                 }
             }
         }
+
+        .main-box{
+            margin-left: 11.25rem;
+        }
     }
+
+}
+
+.sidebar-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    justify-content: space-between;
+    transition: .5s;
+    height: 88vh;
+    width: 90px;
 
     &__menu {
         cursor: pointer;
@@ -48,13 +54,13 @@
                 svg path, svg ellipse {
                     transition: .3s;
                 }
-
+                
                 &:hover {
                     svg path, svg ellipse {
                         stroke: variables.$secondary-color;
                     }
                 }
-
+                
                 span {
                     display: none;
                 }
