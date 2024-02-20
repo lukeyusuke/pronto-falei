@@ -488,19 +488,19 @@ body.dark .introduce-content {
 }
 
 .main-box {
-  border-left: 1px solid rgba(34, 34, 34, 0.3019607843);
-  margin-left: 5.6rem;
+  margin-left: 5.65rem;
   transition: 0.5s;
+  border-left: 1px solid rgba(34, 34, 34, 0.3019607843);
 }
 
 .vent-content {
   padding: 8rem 5rem 8rem 10rem;
 }
-.vent-content .tabs .tabs-links {
-  padding-bottom: 4rem;
+.vent-content .tabs .tabs-links button.active {
+  color: #EF4056;
 }
-.vent-content .tabs .tabs-links .line {
-  width: 80%;
+.vent-content .tabs .tabs-links button.active::before {
+  width: 100%;
 }
 .vent-content .tabs .tabs-links button {
   background-color: transparent;
@@ -529,6 +529,10 @@ body.dark .introduce-content {
   height: 1px;
   transition: 0.3s;
   width: 0%;
+}
+.vent-content .tabs .line {
+  width: 80%;
+  margin-bottom: 4rem;
 }
 .vent-content .tabs .tab-content #other-vents {
   display: none;
@@ -572,23 +576,6 @@ body.dark .introduce-content {
 .vent-content .tabs .tab-content .vent-box__p {
   font-family: "Inter", sans-serif;
   line-height: 1.75;
-}
-.vent-content .tabs .tab-content .other-pages {
-  text-align: center;
-  font-family: "Inter", sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-.vent-content .tabs .tab-content .other-pages svg {
-  cursor: pointer;
-}
-.vent-content .tabs .tab-content .other-pages a {
-  margin: 0.5rem;
-}
-.vent-content .tabs .tab-content .other-pages a:first-child {
-  color: #EF4056;
 }
 
 .vent-footer-content {

@@ -1,9 +1,9 @@
 @use '../../base/variables';
 
 .main-box{
-    border-left: 1px solid variables.$line-color;
-    margin-left: 5.6rem;
+    margin-left: 5.65rem;
     transition: .5s;
+    border-left: 1px solid variables.$line-color;
 }
 
 .vent-content{
@@ -11,10 +11,13 @@
 
     .tabs {
         .tabs-links{
-            padding-bottom: 4rem;
 
-            .line {
-                width: 80%;
+            button.active {
+                color: variables.$secondary-color;
+
+                &::before {
+                    width: 100%;
+                }
             }
 
             button {
@@ -49,6 +52,11 @@
                     width: 0%;
                 }
             }
+        }
+
+        .line {
+            width: 80%;
+            margin-bottom: 4rem;   
         }
 
         .tab-content{
@@ -103,28 +111,6 @@
                 &__p {
                     font-family: 'Inter', sans-serif;
                     line-height: 1.75;
-                }
-            }
-
-            .other-pages {
-                text-align: center;
-                font-family: 'Inter', sans-serif;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: .5rem;
-
-                svg {
-                    cursor: pointer;
-                }
-
-                a {
-                    margin: .5rem;
-
-                    &:first-child{
-                        color: variables.$secondary-color;
-                        
-                    }
                 }
             }
         }
