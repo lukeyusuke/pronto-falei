@@ -1,3 +1,5 @@
+import { darkLightMode } from "../components/js/screenFunctions/screenFunctions.js";
+
 const showDropdownMenu = () => {
     const userPhoto = document.querySelector('.menu-box__profile');
     console.log(userPhoto);
@@ -66,3 +68,4 @@ const TabNavigation = () => {
 showDropdownMenu();
 showSidebarMenu();
 TabNavigation();
+darkLightMode();

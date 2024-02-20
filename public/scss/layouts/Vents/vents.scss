@@ -1,5 +1,25 @@
 @use '../../base/variables';
 
+body.dark {
+    .tabs {
+        &-links {
+            button {
+                color: variables.$primary-color;
+            }
+        }
+        
+        .tab-content {
+            .vent-box {
+                border: 1px dashed variables.$github-color;
+            }
+
+            .vent-box__header p, .vent-box__title{ 
+                color: variables.$primary-color;
+            }
+        }
+    }
+}
+
 .main-box{
     margin-left: 5.65rem;
     transition: .5s;
@@ -10,7 +30,7 @@
     padding: 8rem 5rem 8rem 10rem;
 
     .tabs {
-        .tabs-links{
+        &-links{
 
             button.active {
                 color: variables.$secondary-color;
@@ -61,7 +81,7 @@
 
         .tab-content{
             #other-vents{
-                display: none
+                display: none;
             }
 
             .vent-box {
@@ -69,7 +89,12 @@
                 border-radius: 1rem;
                 margin-bottom: 3rem;
                 padding: 1.5rem 2rem 2rem 2rem;
+                transition: .3s;
                 width: 92%;
+
+                &:hover {
+                    transform: scale(1.025);
+                }
 
                 &__header {
                     display: flex;

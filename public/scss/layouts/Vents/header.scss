@@ -1,6 +1,27 @@
 @use '../../base/variables';
 @use '../../modules/displays';
 
+body.dark {
+    .menu-box__search {
+        input {
+            background-color: transparent;
+            color: variables.$primary-color;
+            border: 2px solid variables.$line-color;
+        }
+    }
+
+    .dropdown-menu {
+        span {
+            color: variables.$github-color;
+            transition: .3s;
+
+            &:hover {
+                color: variables.$secondary-color;
+            }
+        }
+    }
+}
+
 .header-content{
     position: relative;
 
@@ -75,13 +96,17 @@
                     gap: 1rem;
                     align-items: center;
 
-                    svg path, svg circle {
+                    svg path, svg circle, span {
                         transition: .3s;
                     }
     
                     &:hover{
                         svg path, svg circle{
                             stroke: variables.$secondary-color;
+                        } 
+
+                        span {
+                            color: variables.$secondary-color;
                         }
                     }
                 }

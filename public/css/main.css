@@ -353,6 +353,19 @@ body.dark .introduce-content {
     gap: 0rem;
   }
 }
+body.dark .menu-box__search input {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 2px solid rgba(34, 34, 34, 0.3019607843);
+}
+body.dark .dropdown-menu span {
+  color: #222222;
+  transition: 0.3s;
+}
+body.dark .dropdown-menu span:hover {
+  color: #EF4056;
+}
+
 .header-content {
   position: relative;
 }
@@ -419,11 +432,30 @@ body.dark .introduce-content {
   gap: 1rem;
   align-items: center;
 }
-.header-content .menu-box .dropdown-menu__list a svg path, .header-content .menu-box .dropdown-menu__list a svg circle {
+.header-content .menu-box .dropdown-menu__list a svg path, .header-content .menu-box .dropdown-menu__list a svg circle, .header-content .menu-box .dropdown-menu__list a span {
   transition: 0.3s;
 }
 .header-content .menu-box .dropdown-menu__list a:hover svg path, .header-content .menu-box .dropdown-menu__list a:hover svg circle {
   stroke: #EF4056;
+}
+.header-content .menu-box .dropdown-menu__list a:hover span {
+  color: #EF4056;
+}
+
+body.dark .sidebar-content__menu path {
+  stroke: #FFFFFF;
+}
+body.dark .sidebar-content .sidebar__list-item + .sidebar__list-item svg path, body.dark .sidebar-content .sidebar__list-item + .sidebar__list-item svg ellipse {
+  stroke: #FFFFFF;
+}
+body.dark .sidebar-content .sidebar__list-item + .sidebar__list-item span {
+  transition: 0.3s;
+}
+body.dark .sidebar-content .sidebar__list-item + .sidebar__list-item:hover svg path, body.dark .sidebar-content .sidebar__list-item + .sidebar__list-item:hover svg ellipse {
+  stroke: #EF4056;
+}
+body.dark .sidebar-content .sidebar__list-item + .sidebar__list-item:hover span {
+  color: #EF4056;
 }
 
 .all-content {
@@ -478,13 +510,23 @@ body.dark .introduce-content {
 .sidebar-content .sidebar__list-item:first-child a .active-tab {
   color: #EF4056;
 }
-.sidebar-content .sidebar-dark-mode {
+.sidebar-content .moon {
   background: url("../../../assets/images/dark.png") no-repeat center/cover;
   border-top: 1px solid rgba(34, 34, 34, 0.3019607843);
   cursor: pointer;
   text-align: center;
   padding: 2.5rem 0;
   width: 100%;
+}
+
+body.dark .tabs-links button {
+  color: #FFFFFF;
+}
+body.dark .tabs .tab-content .vent-box {
+  border: 1px dashed #222222;
+}
+body.dark .tabs .tab-content .vent-box__header p, body.dark .tabs .tab-content .vent-box__title {
+  color: #FFFFFF;
 }
 
 .main-box {
@@ -496,13 +538,13 @@ body.dark .introduce-content {
 .vent-content {
   padding: 8rem 5rem 8rem 10rem;
 }
-.vent-content .tabs .tabs-links button.active {
+.vent-content .tabs-links button.active {
   color: #EF4056;
 }
-.vent-content .tabs .tabs-links button.active::before {
+.vent-content .tabs-links button.active::before {
   width: 100%;
 }
-.vent-content .tabs .tabs-links button {
+.vent-content .tabs-links button {
   background-color: transparent;
   font-family: "Inter", sans-serif;
   font-size: 0.9rem;
@@ -510,16 +552,16 @@ body.dark .introduce-content {
   position: relative;
   transition: 0.3s;
 }
-.vent-content .tabs .tabs-links button:first-child {
+.vent-content .tabs-links button:first-child {
   margin: 0 2.25rem;
 }
-.vent-content .tabs .tabs-links button:hover {
+.vent-content .tabs-links button:hover {
   color: #EF4056;
 }
-.vent-content .tabs .tabs-links button:hover::before {
+.vent-content .tabs-links button:hover::before {
   width: 100%;
 }
-.vent-content .tabs .tabs-links button::before {
+.vent-content .tabs-links button::before {
   content: "";
   background-color: #EF4056;
   display: block;
@@ -542,7 +584,11 @@ body.dark .introduce-content {
   border-radius: 1rem;
   margin-bottom: 3rem;
   padding: 1.5rem 2rem 2rem 2rem;
+  transition: 0.3s;
   width: 92%;
+}
+.vent-content .tabs .tab-content .vent-box:hover {
+  transform: scale(1.025);
 }
 .vent-content .tabs .tab-content .vent-box__header {
   display: flex;
@@ -576,6 +622,10 @@ body.dark .introduce-content {
 .vent-content .tabs .tab-content .vent-box__p {
   font-family: "Inter", sans-serif;
   line-height: 1.75;
+}
+
+body.dark a {
+  color: #FFFFFF;
 }
 
 .vent-footer-content {

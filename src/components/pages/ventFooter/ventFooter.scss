@@ -1,3 +1,11 @@
+@use '../../../../public/scss/base/variables';
+
+body.dark {      
+    a {
+        color: variables.$primary-color;
+    }
+}
+
 .vent-footer-content{
     display: flex;
     align-items: center;

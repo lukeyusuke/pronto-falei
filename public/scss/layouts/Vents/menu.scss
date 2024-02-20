@@ -1,5 +1,35 @@
 @use '../../base/variables';
 
+body.dark {
+    .sidebar-content{
+        &__menu {
+            path  {
+                stroke: variables.$primary-color;
+            }
+        }
+
+        .sidebar__list-item + .sidebar__list-item{
+            svg path, svg ellipse {
+                stroke: variables.$primary-color;
+            }
+
+            span {
+                transition: .3s;
+            }
+
+            &:hover {
+                svg path, svg ellipse {
+                    stroke: variables.$secondary-color;
+                }
+
+                span {
+                    color: variables.$secondary-color;
+                }
+            }            
+        }
+    }
+}
+
 .all-content{
     display: flex;
     
@@ -78,7 +108,7 @@
         }
     }
 
-    .sidebar-dark-mode{
+    .moon{
         background: url('../../../assets/images/dark.png') no-repeat center / cover;
         border-top: 1px solid variables.$line-color;
         cursor: pointer;
