@@ -457,6 +457,16 @@ body.dark .sidebar-content .sidebar__list-item + .sidebar__list-item:hover svg p
 body.dark .sidebar-content .sidebar__list-item + .sidebar__list-item:hover span {
   color: #EF4056;
 }
+body.dark .change-bg {
+  background: url("../../../assets/images/light.png") no-repeat center/cover;
+  transition: 1s;
+}
+body.dark .change-bg .moon {
+  display: none;
+}
+body.dark .change-bg .sun {
+  display: block;
+}
 
 .all-content {
   display: flex;
@@ -478,7 +488,7 @@ body.dark .sidebar-content .sidebar__list-item + .sidebar__list-item:hover span 
   position: fixed;
   justify-content: space-between;
   transition: 0.5s;
-  height: 88vh;
+  height: 86vh;
   width: 90px;
 }
 .sidebar-content__menu {
@@ -510,13 +520,17 @@ body.dark .sidebar-content .sidebar__list-item + .sidebar__list-item:hover span 
 .sidebar-content .sidebar__list-item:first-child a .active-tab {
   color: #EF4056;
 }
-.sidebar-content .moon {
+.sidebar-content .change-bg {
   background: url("../../../assets/images/dark.png") no-repeat center/cover;
   border-top: 1px solid rgba(34, 34, 34, 0.3019607843);
+  display: flex;
   cursor: pointer;
-  text-align: center;
-  padding: 2.5rem 0;
+  padding: 2.25rem 0;
   width: 100%;
+  justify-content: center;
+}
+.sidebar-content .change-bg .sun {
+  display: none;
 }
 
 body.dark .tabs-links button {

@@ -28,6 +28,19 @@ body.dark {
             }            
         }
     }
+
+    .change-bg {
+        background: url('../../../assets/images/light.png') no-repeat center / cover;
+        transition: 1s;
+
+        .moon {
+            display: none;
+        }
+
+        .sun {
+            display: block;
+        }
+    }
 }
 
 .all-content{
@@ -62,7 +75,7 @@ body.dark {
     position: fixed;
     justify-content: space-between;
     transition: .5s;
-    height: 88vh;
+    height: 86vh;
     width: 90px;
 
     &__menu {
@@ -108,12 +121,17 @@ body.dark {
         }
     }
 
-    .moon{
+    .change-bg{
         background: url('../../../assets/images/dark.png') no-repeat center / cover;
         border-top: 1px solid variables.$line-color;
+        display: flex;
         cursor: pointer;
-        text-align: center;
-        padding: 2.5rem 0;
+        padding: 2.25rem 0;
         width: 100%;
+        justify-content: center;
+
+        .sun {
+            display: none;
+        }
     }
 }

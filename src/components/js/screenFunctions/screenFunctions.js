@@ -8,9 +8,9 @@ export const showMenuMobile = () => {
 };
 
 export const darkLightMode = () => {
-   const moon = document.querySelector('.moon');
+   const changeBg = document.querySelector('.change-bg');
 
-   moon.addEventListener('click', () => {
+   changeBg.addEventListener('click', () => {
       document.body.classList.toggle("dark");
    })
 };
