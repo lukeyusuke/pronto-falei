@@ -45,6 +45,7 @@ b {
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
   transition: 0.3s;
 }
 a:hover {
@@ -589,9 +590,6 @@ body.dark .tabs .tab-content .vent-box__header p, body.dark .tabs .tab-content .
 .vent-content .tabs .line {
   width: 80%;
   margin-bottom: 4rem;
-}
-.vent-content .tabs .tab-content #other-vents {
-  display: none;
 }
 .vent-content .tabs .tab-content .vent-box {
   box-shadow: 1px 3px 10px rgba(34, 34, 34, 0.3019607843);

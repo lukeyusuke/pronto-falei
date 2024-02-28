@@ -2,7 +2,6 @@ import { darkLightMode } from "../components/js/screenFunctions/screenFunctions.
 
 const showDropdownMenu = () => {
     const userPhoto = document.querySelector('.menu-box__profile');
-    console.log(userPhoto);
 
     userPhoto.addEventListener('click', () => {
         document.querySelector('.dropdown-menu').classList.toggle('active');
@@ -19,24 +18,46 @@ const showSidebarMenu = () => {
 
 const TabNavigation = () => {
     const tabLinks = [...document.querySelector('.tabs-links').children];
-    const contents = [...document.querySelector('.tab-content').children]; 
+    const menuLinks = [...document.querySelector('.menu-links').children];
+
+    const homeContents = [...document.querySelector('.tab-content').children]; 
+    const menuContents = [...document.querySelector('.menu-content').children];
+    
     const openTab = document.querySelector('[data-open]');
+    const unlockedTab = document.querySelector('[data-unlocked]')
 
     const hideAllTabContent = () => {
-        contents.forEach(section => {
+        menuContents.forEach(section => {
+            section.style.display = "none";
+        })
+
+        homeContents.forEach(section => {
             section.style.display = "none";
         })
     }
  
     const removeAllActiveClass = () => {
-       tabLinks.forEach(tab => {
-          tab.className = tab.className.replace(" active", "");
-       })
+        menuLinks.forEach(tab => {
+            tab.className = tab.className.replace(" active", "")
+        })
+
+        tabLinks.forEach(tab => {
+            tab.className = tab.className.replace(" active", "")
+        })
     }
  
     const showCurrentTab = (id) => {
        const tabContent = document.querySelector('#' + id);
-       tabContent.style.display = "block";
+
+        if(tabContent.id === 'home'){
+            openTab.click();
+        } else  if(tabContent.id === 'recently'){
+            document.querySelector('#home').style.display = "block";
+        } else if (tabContent.id === 'others'){
+            document.querySelector('#home').style.display = "block";
+        }
+
+        tabContent.style.display = "block";
     }
  
     const selectTab = (e) => {
@@ -45,21 +66,29 @@ const TabNavigation = () => {
  
        const target = e.currentTarget;
        showCurrentTab(target.dataset.id);
+
+       /* só está sendo selecionado o nosso último alvo, logo, nossa home sempre
+        ficará com valor none  */
  
        target.className += " active"
     }
  
     const listenChanges = () => {
-        tabLinks.forEach(tab => {
-            tab.addEventListener('click', selectTab);
+        menuLinks.forEach(tab => {
+            tab.addEventListener('click', selectTab)
         })
+
+        tabLinks.forEach(tab => {
+            tab.addEventListener('click', selectTab)
+        })
+
     }
 
     const init = () => {
         hideAllTabContent();
         listenChanges();
   
-        openTab.click();
+        unlockedTab.click();
     }
   
     return init();
