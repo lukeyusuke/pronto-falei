@@ -136,4 +136,44 @@ body.dark {
             }
         }
     }
+
+    #vents {
+        width: 950px; // consertar esta parte
+        
+        .vents-form {
+            input, textarea {
+                border: none;
+                width: 100%;
+            }
+
+            .text-header{
+                margin-bottom: 2rem;
+
+                input {
+                    font-size: 1rem;
+                    font-family: 'Inter';
+                }
+                
+                input:first-child{
+                    font-size: 1.75rem;
+                    padding: 1rem 0;
+                    font-weight: 700;
+                }
+            }
+
+            .main-text{
+                font-size: 1rem;
+                font-family: 'Istok Web', sans-serif;
+                padding: 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .vent-btn {
+                position: absolute;
+                top: 1.35rem;
+                right: 11rem;
+                padding: 1rem 3.5rem;
+            }
+        }
+    }
 }

@@ -48,15 +48,15 @@ const TabNavigation = () => {
  
     const showCurrentTab = (id) => {
        const tabContent = document.querySelector('#' + id);
+       const searchBox = document.querySelector('.menu-box__search');
 
         if(tabContent.id === 'home'){
             openTab.click();
-        } else  if(tabContent.id === 'recently'){
+        } else if(tabContent.id === 'recently' || tabContent.id === 'others'){
             document.querySelector('#home').style.display = "block";
-        } else if (tabContent.id === 'others'){
-            document.querySelector('#home').style.display = "block";
-        }
+        } 
 
+        tabContent.id === 'vents' ? searchBox.style.display = "none" : searchBox.style.display = "block";
         tabContent.style.display = "block";
     }
  
@@ -66,9 +66,6 @@ const TabNavigation = () => {
  
        const target = e.currentTarget;
        showCurrentTab(target.dataset.id);
-
-       /* só está sendo selecionado o nosso último alvo, logo, nossa home sempre
-        ficará com valor none  */
  
        target.className += " active"
     }
@@ -94,7 +91,12 @@ const TabNavigation = () => {
     return init();
 }
 
+const quill = () => new Quill('.main-text', {
+    theme: 'snow'
+});
+
 showDropdownMenu();
 showSidebarMenu();
 TabNavigation();
 darkLightMode();
+quill();

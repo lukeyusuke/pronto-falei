@@ -635,6 +635,37 @@ body.dark .tabs .tab-content .vent-box__header p, body.dark .tabs .tab-content .
   font-family: "Inter", sans-serif;
   line-height: 1.75;
 }
+.vent-content #vents {
+  width: 950px;
+}
+.vent-content #vents .vents-form input, .vent-content #vents .vents-form textarea {
+  border: none;
+  width: 100%;
+}
+.vent-content #vents .vents-form .text-header {
+  margin-bottom: 2rem;
+}
+.vent-content #vents .vents-form .text-header input {
+  font-size: 1rem;
+  font-family: "Inter";
+}
+.vent-content #vents .vents-form .text-header input:first-child {
+  font-size: 1.75rem;
+  padding: 1rem 0;
+  font-weight: 700;
+}
+.vent-content #vents .vents-form .main-text {
+  font-size: 1rem;
+  font-family: "Istok Web", sans-serif;
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+.vent-content #vents .vents-form .vent-btn {
+  position: absolute;
+  top: 1.35rem;
+  right: 11rem;
+  padding: 1rem 3.5rem;
+}
 
 body.dark a {
   color: #FFFFFF;
