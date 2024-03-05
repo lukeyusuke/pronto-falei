@@ -92,7 +92,18 @@ const TabNavigation = () => {
 }
 
 const quill = () => new Quill('.main-text', {
-    theme: 'snow'
+    theme: 'snow',
+    modules: {
+        toolbar: [
+            [{ 'header': [1, 2, 3, false] }],
+            ['bold', 'italic', 'underline', 'strike'],
+            ['blockquote', 'code-block'],
+            [{ 'list': 'check' }],
+            [{ 'align': [] }],
+            ['image', 'link'],
+            ['clean']
+        ]
+    }
 });
 
 showDropdownMenu();

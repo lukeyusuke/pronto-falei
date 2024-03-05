@@ -141,22 +141,22 @@ body.dark {
         width: 950px; // consertar esta parte
         
         .vents-form {
-            input, textarea {
-                border: none;
+            div {
+                outline: 0;
                 width: 100%;
             }
 
             .text-header{
                 margin-bottom: 2rem;
 
-                input {
+                div {
                     font-size: 1rem;
                     font-family: 'Inter';
                 }
                 
-                input:first-child{
-                    font-size: 1.75rem;
-                    padding: 1rem 0;
+                div:first-child{
+                    font-size: 2rem;
+                    padding: .5rem 0;
                     font-weight: 700;
                 }
             }

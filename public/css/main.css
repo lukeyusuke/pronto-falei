@@ -638,20 +638,20 @@ body.dark .tabs .tab-content .vent-box__header p, body.dark .tabs .tab-content .
 .vent-content #vents {
   width: 950px;
 }
-.vent-content #vents .vents-form input, .vent-content #vents .vents-form textarea {
-  border: none;
+.vent-content #vents .vents-form div {
+  outline: 0;
   width: 100%;
 }
 .vent-content #vents .vents-form .text-header {
   margin-bottom: 2rem;
 }
-.vent-content #vents .vents-form .text-header input {
+.vent-content #vents .vents-form .text-header div {
   font-size: 1rem;
   font-family: "Inter";
 }
-.vent-content #vents .vents-form .text-header input:first-child {
-  font-size: 1.75rem;
-  padding: 1rem 0;
+.vent-content #vents .vents-form .text-header div:first-child {
+  font-size: 2rem;
+  padding: 0.5rem 0;
   font-weight: 700;
 }
 .vent-content #vents .vents-form .main-text {
