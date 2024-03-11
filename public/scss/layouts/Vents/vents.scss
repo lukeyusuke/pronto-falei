@@ -1,4 +1,6 @@
 @use '../../base/variables';
+@use '../../modules/mixins';
+@use '../../modules/displays';
 
 body.dark {
     .tabs {
@@ -18,16 +20,35 @@ body.dark {
             }
         }
     }
+
+    #vents {
+        .text-header {
+            &__title {
+                color: variables.$primary-color;
+            }
+
+            &__subtitle {
+                color: rgba(206, 206, 206, 0.5);
+            }
+        }
+    }
 }
 
 .main-box{
     margin-left: 5.65rem;
+    width: 100%;
     transition: .5s;
     border-left: 1px solid variables.$line-color;
 }
 
 .vent-content{
     padding: 8rem 5rem 8rem 10rem;
+    align-items: center;
+    @extend %center-display;
+
+    .menu-content{
+        background-color: red($color: #000000);
+    }
 
     .tabs {
         &-links{
@@ -80,16 +101,14 @@ body.dark {
         }
 
         .tab-content{
-            #other-vents{
-                display: none;
-            }
-
             .vent-box {
                 box-shadow: 1px 3px 10px variables.$line-color;
                 border-radius: 1rem;
                 margin-bottom: 3rem;
                 padding: 1.5rem 2rem 2rem 2rem;
                 transition: .3s;
+                min-width: 500px;
+                max-width: 1000px;
                 width: 92%;
 
                 &:hover {
@@ -137,6 +156,46 @@ body.dark {
                     font-family: 'Inter', sans-serif;
                     line-height: 1.75;
                 }
+            }
+        }
+    }
+
+    #vents {
+        width: 950px; // consertar esta parte
+        
+        .vents-form {
+            div {
+                outline: 0;
+                width: 100%;
+            }
+
+            .text-header{
+                margin-bottom: 2rem;
+
+                div {
+                    font-size: 1rem;
+                    font-family: 'Inter';
+                }
+                
+                div:first-child{
+                    font-size: 2rem;
+                    padding: .5rem 0;
+                    font-weight: 700;
+                }
+            }
+
+            .main-text{
+                font-size: 1rem;
+                font-family: 'Istok Web', sans-serif;
+                padding: 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .vent-btn {
+                position: absolute;
+                top: 1.35rem;
+                right: 11rem;
+                padding: 1rem 3.5rem;
             }
         }
     }

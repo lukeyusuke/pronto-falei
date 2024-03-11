@@ -82,11 +82,11 @@ body.dark {
         cursor: pointer;
         margin-top: 2rem;
     }
-
+    
     .sidebar__list{
         &-item {
             padding: 1rem 0;
-
+            
             a {
                 display: flex;
                 gap: .5rem;
@@ -110,12 +110,13 @@ body.dark {
             }
         }
 
-        &-item:first-child{
+        &-item.active {
             a {
-                background-color: rgba(239, 64, 86, 0.2); 
+                background-color: rgba(239, 64, 86, 0.4);
+                color: variables.$secondary-color;
 
-                .active-tab {
-                    color: variables.$secondary-color;
+                svg path, svg ellipse {
+                    stroke: variables.$secondary-color;
                 }
             }
         }
