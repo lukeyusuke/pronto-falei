@@ -1,4 +1,6 @@
 @use '../../base/variables';
+@use '../../modules/mixins';
+@use '../../modules/displays';
 
 body.dark {
     .tabs {
@@ -18,16 +20,35 @@ body.dark {
             }
         }
     }
+
+    #vents {
+        .text-header {
+            &__title {
+                color: variables.$primary-color;
+            }
+
+            &__subtitle {
+                color: rgba(206, 206, 206, 0.5);
+            }
+        }
+    }
 }
 
 .main-box{
     margin-left: 5.65rem;
+    width: 100%;
     transition: .5s;
     border-left: 1px solid variables.$line-color;
 }
 
 .vent-content{
     padding: 8rem 5rem 8rem 10rem;
+    align-items: center;
+    @extend %center-display;
+
+    .menu-content{
+        background-color: red($color: #000000);
+    }
 
     .tabs {
         &-links{
@@ -86,6 +107,8 @@ body.dark {
                 margin-bottom: 3rem;
                 padding: 1.5rem 2rem 2rem 2rem;
                 transition: .3s;
+                min-width: 500px;
+                max-width: 1000px;
                 width: 92%;
 
                 &:hover {
