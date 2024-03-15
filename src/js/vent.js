@@ -10,7 +10,7 @@ const showDropdownMenu = () => {
 
     document.addEventListener('click', (e) => {
         const target = e.target;
-        
+
         if(target !== userPhoto){
             dropdownMenu.classList.remove('active');
         }
@@ -30,9 +30,9 @@ const TabNavigation = () => {
     const tabLinks = [...document.querySelector('.tabs-links').children];
     const menuLinks = [...document.querySelector('.menu-links').children];
 
-    const homeContents = [...document.querySelector('.tab-content').children]; 
+    const homeContents = [...document.querySelector('.tab-content').children];
     const menuContents = [...document.querySelector('.menu-content').children];
-    
+
     const openTab = document.querySelector('[data-open]');
     const unlockedTab = document.querySelector('[data-unlocked]')
 
@@ -45,7 +45,7 @@ const TabNavigation = () => {
             section.style.display = "none";
         })
     }
- 
+
     const removeAllActiveClass = () => {
         menuLinks.forEach(tab => {
             tab.className = tab.className.replace(" active", "")
@@ -55,7 +55,7 @@ const TabNavigation = () => {
             tab.className = tab.className.replace(" active", "")
         })
     }
- 
+
     const showCurrentTab = (id) => {
        const tabContent = document.querySelector('#' + id);
        const searchBox = document.querySelector('.menu-box__search');
@@ -67,9 +67,9 @@ const TabNavigation = () => {
 
         } else if(tabContent.id === 'recently' || tabContent.id === 'others'){
             document.querySelector('#home').style.display = "block";
-            home.classList.add('active');  
-        } 
-        
+            home.classList.add('active');
+        }
+
         if(tabContent.id === 'vents'){
             searchBox.style.display = "none"
             home.classList.remove('active');
@@ -97,7 +97,7 @@ const TabNavigation = () => {
                 vent.classList.add('active');
                 searchBox.style.display = "none";
             }
-            
+
             ventHeaderLink.addEventListener('click', () => {
                 showVentsTab();
             })
@@ -108,20 +108,20 @@ const TabNavigation = () => {
                 })
             })
         }
-        
+
         handleLinks();
     }
- 
+
     const selectTab = (e) => {
        hideAllTabContent();
        removeAllActiveClass();
- 
+
        const target = e.currentTarget;
        showCurrentTab(target.dataset.id);
- 
+
        target.className += " active"
     }
- 
+
     const listenChanges = () => {
         menuLinks.forEach(tab => {
             tab.addEventListener('click', selectTab)
@@ -136,10 +136,10 @@ const TabNavigation = () => {
     const init = () => {
         hideAllTabContent();
         listenChanges();
-  
+
         unlockedTab.click();
     }
-  
+
     return init();
 }
 
@@ -159,8 +159,84 @@ const quill = () => new Quill('.main-text', {
     }
 });
 
+const createVent = () => {
+    const ventForm = document.querySelector('.vents-form');
+
+    const submitVentForm = () => {
+        ventForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const title = document.querySelector('.text-header__title').textContent;
+            const subtitle = document.querySelector('.text-header__subtitle').textContent;
+            const main_text = document.querySelector('.ql-editor').textContent;
+            
+            
+            const ventData = {
+                title: title,
+                subtitle: subtitle,
+                main_text: main_text,
+            }
+            
+            fetch('/vent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8'
+                },
+                body: JSON.stringify(ventData)
+            }).then(response => response.json())
+            .then(() => {
+                const tabRecently = document.querySelector('#recently');
+
+                const link = document.createElement('a');
+                const ventBox = document.createElement('div');
+                const ventBoxHeader = document.createElement('header');
+                const ventBoxProfile = document.createElement('div');
+                const ventBoxProfileImg = document.createElement('img');
+                const ventBoxProfileP = document.createElement('p');
+                const ventBoxTitle = document.createElement('div');
+                const ventBoxParagraph = document.createElement('p');
+
+                const hrefAttribute = document.createAttribute('href');
+                const srcAttribute = document.createAttribute('src');
+
+                link.setAttributeNode(hrefAttribute);
+                ventBoxProfileImg.setAttributeNode(srcAttribute);
+                srcAttribute.value = '../../../assets/images/profile-photo.jpg';
+                
+                ventBox.classList.add('vent-box');
+                ventBoxHeader.classList.add('vent-box__header');
+                ventBoxProfile.classList.add('vent-box__header__profile');
+
+                ventBoxTitle.classList.add('vent-box__title');
+                ventBoxTitle.innerText = title;
+
+                ventBoxParagraph.classList.add('vent-box__p');
+                ventBoxParagraph.innerText = main_text;
+
+                tabRecently.appendChild(link); 
+                link.appendChild(ventBox);
+                ventBox.appendChild(ventBoxHeader);
+                ventBox.appendChild(ventBoxTitle);
+                ventBox.appendChild(ventBoxParagraph);
+
+                ventBoxHeader.appendChild(ventBoxProfile);
+                ventBoxProfile.appendChild(ventBoxProfileImg);
+                ventBoxProfile.appendChild(ventBoxProfileP)
+
+
+                
+                console.log('O relato foi cadastrado com sucesso...')
+            })
+            .catch(err => console.log(err));
+        })
+    }
+
+    submitVentForm();
+}
+
 showDropdownMenu();
 showSidebarMenu();
 TabNavigation();
 darkLightMode();
 quill();
+createVent();

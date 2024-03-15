@@ -1,7 +1,7 @@
 import Vent from "../models/ventModel.js";
 
 export const ventPage = (req, res) => {
-    res.render('vent'); 
+    res.render('vent');
 }
 
 export const searchAllVents = (req, res) => {
@@ -14,9 +14,9 @@ export const searchAllVents = (req, res) => {
 
 export const createVent = (req, res) => {
     const vent = new Vent();
-    // const { title, report_text, tags, publication_dt } = req.body;
+    const { title, subtitle, main_text } = req.body;
 
-    vent.create()
+    vent.create(title, subtitle, main_text)
         .then(vents => res.json(vents))
         .catch(err => console.log(err))
 }

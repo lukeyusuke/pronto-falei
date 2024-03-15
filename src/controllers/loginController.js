@@ -24,7 +24,9 @@ export const loginUser = (req, res) => {
             error = 'Usuário e/ou senha inválido';
             res.status(400).json({ error });
          } else {
-            res.status(200).json();
+            const id_user = dataUser.id_user;
+            const email = dataUser.email;
+            res.status(200).json({ id_user, email });
          }
       }).catch(err => console.log(err));
 }

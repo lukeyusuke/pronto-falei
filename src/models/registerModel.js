@@ -6,10 +6,10 @@ class Register{
       
       return new Promise((resolve, reject) => {
          databaseConnection.query(sql, (err, result) => {
-            if(err) console.log('Não deu pra concluir o cadastro do usuário');
+            if(err) console.log(err);
             resolve(result);
          })
-      })   
+      })
    }
 }
 

@@ -42,10 +42,15 @@ const checkUser = () => {
             errorMessage.textContent = data.error;
             errorMessage.classList.add('active');
          })
-      } else { 
-         window.location.href = "/vent";
-         inputs.map((input) => {
-            input.value = ' ';
+      } else {
+         return response.json().then((data) => {
+            const id_user = data.id_user;
+            const email = data.email;
+            window.location.href = "/vent?id_user=" + id_user + "&email=" + email;
+            
+            inputs.map((input) => {
+               input.value = ' ';
+            })
          })
       }
    }

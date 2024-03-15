@@ -24,7 +24,7 @@ class Login{
    }
 
    checkPhoneNumberExists(tel){
-      const sql = `SELECT email, tel from users WHERE tel = '${tel}'`
+      const sql = `SELECT tel from users WHERE tel = '${tel}'`
 
       return new Promise((resolve, reject) => {
          databaseConnection.query(sql, (err, result) => {
@@ -35,7 +35,7 @@ class Login{
    }
 
    checkEmailPasswordExists(email, user_password){
-      const sql = `SELECT email, user_password from users WHERE email = '${email}' AND user_password = '${user_password}'`
+      const sql = `SELECT id_user, email, user_password from users WHERE email = '${email}' AND user_password = '${user_password}'`
 
       return new Promise((resolve, reject) => {
          databaseConnection.query(sql, (err, result) => {
