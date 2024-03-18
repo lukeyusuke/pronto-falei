@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import Login from '../models/loginModel.js';
 
 export const loginPage = (req, res) => {
@@ -12,23 +13,26 @@ export const searchAllUsers = (req, res) => {
       .catch(err => console.log(err));
 }
 
-export const loginUser = (req, res) => {
+export const loginUser = async (req, res) => {
    const login = new Login();
    const { email, user_password } = req.body;
+   
    let error;
-
-   login.checkEmailPasswordExists(email, user_password)
-      .then((data) => {
+   
+   login.checkEmailPasswordExists(email)
+      .then(async (data) => {
          const dataUser = data.shift();
-         if(!dataUser){
+         const password = dataUser.user_password;
+         const match = await bcrypt.compare(user_password, password);
+
+         if(!dataUser || !match){
             error = 'Usuário e/ou senha inválido';
             res.status(400).json({ error });
          } else {
             const id_user = dataUser.id_user;
-            const email = dataUser.email;
-            res.status(200).json({ id_user, email });
+            res.status(200).json({ id_user });
          }
-      }).catch(err => console.log(err));
+      }).catch(err => console.log(err));   
 }
 
 export const updateUser = (req, res) => {
