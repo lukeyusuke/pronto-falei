@@ -170,7 +170,6 @@ const createVent = () => {
             const subtitle = document.querySelector('.text-header__subtitle').textContent;
             const main_text = document.querySelector('.ql-editor').textContent;
             
-            
             const ventData = {
                 title: title,
                 subtitle: subtitle,
@@ -222,8 +221,6 @@ const createVent = () => {
                 ventBoxHeader.appendChild(ventBoxProfile);
                 ventBoxProfile.appendChild(ventBoxProfileImg);
                 ventBoxProfile.appendChild(ventBoxProfileP)
-
-
                 
                 console.log('O relato foi cadastrado com sucesso...')
             })
@@ -234,9 +231,31 @@ const createVent = () => {
     submitVentForm();
 }
 
-showDropdownMenu();
-showSidebarMenu();
-TabNavigation();
-darkLightMode();
-quill();
-createVent();
+const logout = () => {
+    const logout = document.querySelector('.logout');
+    logout.addEventListener('click', () => {
+        fetch('/logout', {
+            method: 'POST',
+            credentials: 'same-origin'
+        }).then((response) => {
+            if(response.ok){
+                window.location.href = '/login'
+            } else {
+                console.log('Deu merda');
+            }
+        })
+
+    })
+}
+
+const init = () => {
+    showDropdownMenu();
+    showSidebarMenu();
+    TabNavigation();
+    darkLightMode();
+    quill();
+    createVent();
+    logout();
+}
+
+init();

@@ -2,6 +2,9 @@
                 <main class="vent-content">
                     <div class="menu-content">
                         <section id="home">
+                            <% if(user){ %>
+                                <p> <%= user.email %> </p>
+                            <% } %>
                             <div class="tabs">
                                 <div class="tabs-links">
                                     <button class="tab-links__recently" data-id="recently" data-open>Recentes</button>

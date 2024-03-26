@@ -31,9 +31,7 @@ const checkUser = () => {
          })
       } else {
          return response.json().then((data) => {
-            const id_user = data.id_user;
-            const email = data.email;
-            window.location.href = "/vent?id_user=" + id_user + "&email=" + email;
+            window.location.href = "/vent"
             
             inputs.map((input) => {
                input.value = ' ';
@@ -49,7 +47,8 @@ const init = () => {
    showMenuMobile();
    darkLightMode();
    showHidePassword();
-   checkUser()
+   checkUser();
+   logoutUser();
 }
 
 init();

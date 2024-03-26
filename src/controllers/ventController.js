@@ -1,7 +1,11 @@
 import Vent from "../models/ventModel.js";
 
 export const ventPage = (req, res) => {
-    res.render('vent');
+    if(req.session.user){
+        res.render('vent', {user: req.session.user});
+    } else {
+        res.status(401).send('Você ainda não fez o Login');
+    }
 }
 
 export const searchAllVents = (req, res) => {
