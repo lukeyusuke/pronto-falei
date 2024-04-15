@@ -35,7 +35,7 @@ class Login{
    }
 
    checkEmailPasswordExists(email){
-      const sql = `SELECT id_user, email, user_password from users WHERE email = '${email}'`;
+      const sql = `SELECT id_user, username, email, user_password from users WHERE email = '${email}'`;
 
       return new Promise((resolve, reject) => {
          databaseConnection.query(sql, (err, result) => {

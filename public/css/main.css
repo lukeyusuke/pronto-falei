@@ -81,7 +81,7 @@ input, textarea {
   color: #FFF;
 }
 
-.vent-content, #header, #introduce, #about-us, #talk-us, #footer, #account-content {
+#header, #introduce, #about-us, #talk-us, #footer, #account-content {
   display: flex;
   justify-content: center;
 }
@@ -553,17 +553,13 @@ body.dark #vents .text-header__subtitle {
 
 .main-box {
   margin-left: 5.65rem;
-  width: 100%;
   transition: 0.5s;
   border-left: 1px solid rgba(34, 34, 34, 0.3019607843);
+  width: 100%;
 }
 
 .vent-content {
-  padding: 8rem 5rem 8rem 10rem;
-  align-items: center;
-}
-.vent-content .menu-content {
-  background-color: 0;
+  padding: 8rem 5rem 13.5rem 10rem;
 }
 .vent-content .tabs-links button.active {
   color: #EF4056;
@@ -601,6 +597,7 @@ body.dark #vents .text-header__subtitle {
 }
 .vent-content .tabs .line {
   width: 80%;
+  max-width: 900px;
   margin-bottom: 4rem;
 }
 .vent-content .tabs .tab-content .vent-box {
@@ -611,7 +608,7 @@ body.dark #vents .text-header__subtitle {
   transition: 0.3s;
   min-width: 500px;
   max-width: 1000px;
-  width: 92%;
+  width: 900px;
 }
 .vent-content .tabs .tab-content .vent-box:hover {
   transform: scale(1.025);
@@ -636,43 +633,64 @@ body.dark #vents .text-header__subtitle {
   color: #222222;
 }
 .vent-content .tabs .tab-content .vent-box__header__tags span {
-  background-color: red;
-  color: #FFF;
+  border: 1px solid rgba(34, 34, 34, 0.3019607843);
   margin-left: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   padding: 0.5rem 1rem;
 }
 .vent-content .tabs .tab-content .vent-box__title {
-  padding: 1.5rem 0;
+  font-family: "Inter", sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding-top: 1.5rem;
 }
 .vent-content .tabs .tab-content .vent-box__p {
-  font-family: "Inter", sans-serif;
+  padding: 1.5rem 0;
   line-height: 1.75;
 }
 .vent-content #vents {
   width: 950px;
 }
-.vent-content #vents .vents-form div {
+.vent-content #vents .vents-form {
+  font-family: "Inter";
+}
+.vent-content #vents .vents-form .title, .vent-content #vents .vents-form .subtitle, .vent-content #vents .vents-form .main-text {
   outline: 0;
   width: 100%;
 }
 .vent-content #vents .vents-form .text-header {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 .vent-content #vents .vents-form .text-header div {
-  font-size: 1rem;
-  font-family: "Inter";
+  display: flex;
+  align-items: center;
 }
-.vent-content #vents .vents-form .text-header div:first-child {
+.vent-content #vents .vents-form .text-header .text-header-title {
+  margin-bottom: 1.25rem;
+}
+.vent-content #vents .vents-form .text-header .text-header-title .title {
   font-size: 2rem;
-  padding: 0.5rem 0;
   font-weight: 700;
+}
+.vent-content #vents .vents-form .error-message, .vent-content #vents .vents-form .success-message {
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  width: 200px;
+  margin-bottom: 1rem;
+}
+.vent-content #vents .vents-form .error-message {
+  background-color: rgba(239, 64, 86, 0.4);
+  color: #EF4056;
+}
+.vent-content #vents .vents-form .success-message {
+  background-color: rgba(61, 140, 64, 0.4);
+  color: #3D8C40;
+  width: 300px;
 }
 .vent-content #vents .vents-form .main-text {
   font-size: 1rem;
   font-family: "Istok Web", sans-serif;
   padding: 1rem;
-  margin-bottom: 3rem;
 }
 .vent-content #vents .vents-form .vent-btn {
   position: absolute;

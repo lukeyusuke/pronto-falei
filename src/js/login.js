@@ -30,7 +30,7 @@ const checkUser = () => {
             errorMessage.classList.add('active');
          })
       } else {
-         return response.json().then((data) => {
+         return response.json().then(() => {
             window.location.href = "/vent"
             
             inputs.map((input) => {
@@ -48,7 +48,6 @@ const init = () => {
    darkLightMode();
    showHidePassword();
    checkUser();
-   logoutUser();
 }
 
 init();

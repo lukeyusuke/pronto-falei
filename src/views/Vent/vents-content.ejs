@@ -2,9 +2,6 @@
                 <main class="vent-content">
                     <div class="menu-content">
                         <section id="home">
-                            <% if(user){ %>
-                                <p> <%= user.email %> </p>
-                            <% } %>
                             <div class="tabs">
                                 <div class="tabs-links">
                                     <button class="tab-links__recently" data-id="recently" data-open>Recentes</button>
@@ -14,7 +11,18 @@
         
                                 <div class="tab-content">
                                     <section id="recently">  
-                                        
+                                        <a href="">
+                                            <div class="vent-box">
+                                                <header class="vent-box__header">
+                                                    <div class="vent-box__header__profile">
+                                                        <img src="../../../assets/images/profile-photo.jpg" alt="Foto do usuário">
+                                                        <p> Giovana Nunes </p>
+                                                    </div>
+                                                </header>
+                                                <h1 class="vent-box__title text">Fui traída pelo meu marido</h1>
+                                                <p class="vent-box__p text">Meu nome é Giovana, e hoje eu quero compartilhar uma parte da minha vida que foi extremamente dolorosa: fui traída pelo meu marido. Lembro-me claramente do momento em que descobri a traição, como se fosse ontem. Nós tínhamos construído uma vida juntos, com sonhos.....</p>
+                                            </div>
+                                        </a>   
                                     </section>
                                     <section id="others">
                                         <a href="">
@@ -24,26 +32,30 @@
                                                         <img src="../../../assets/images/profile-photo.jpg" alt="Foto do usuário">
                                                         <p> Giovana Nunes </p>
                                                     </div>
-                                                    <div class="vent-box__header__tags">
-                                                        <span> família </span>
-                                                        <span> traição </span>
-                                                    </div>
                                                 </header>
                                                 <h1 class="vent-box__title">Fui traída pelo meu marido</h1>
                                                 <p class="vent-box__p">Meu nome é Giovana, e hoje eu quero compartilhar uma parte da minha vida que foi extremamente dolorosa: fui traída pelo meu marido. Lembro-me claramente do momento em que descobri a traição, como se fosse ontem. Nós tínhamos construído uma vida juntos, com sonhos.....</p>
                                             </div>
-                                        </a>                      
+                                        </a>                   
                                     </section>
                                 </div>
                             </div>
                         </section>
                         <article id="vents">
                             <form action="/vent" class="vents-form">
+                                <span class="success-message"> Desabafo postado com sucesso! </span>
                                 <div class="text-header">
-                                    <div contenteditable="true" class="text-header__title">Coloque seu título aqui</div><br/>
-                                    <div contenteditable="true" class="text-header__subtitle">Coloque seu subtítulo aqui</div><br/>
+                                    <div class="text-header-title">
+                                        <div contenteditable="true" class="title">Coloque seu título aqui</div><br/>
+                                        <span class="error-message">  </span>
+                                    </div>
+                                    <div class="text-header-subtitle">
+                                        <div contenteditable="true" class="subtitle">Coloque seu subtítulo aqui</div><br/>
+                                        <span class="error-message">  </span>
+                                    </div>
                                 </div>
                                 <div contenteditable="true" class="main-text"> Escrever... </div>
+                                <span class="error-message">  </span>
                                 <button class="btn vent-btn"> Publicar </button>
                             </form>
                         </article>
