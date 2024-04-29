@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import Login from '../models/loginModel.js';
 import Register from '../models/registerModel.js';
 import { validateName, validateEmail, checkWhiteSpace, validatePhoneNumber } from '../components/js/regexFunctions/functions.js';
@@ -6,11 +7,13 @@ export const registerPage = (req, res) => {
    res.render('register');
 }
 
-export const createUser = (req, res) => {
+export const createUser = async (req, res) => {
    const login = new Login();
    const register = new Register();
+   
+   const { username, email, user_password, tel, dt_birth, genre } = req.body;
+   const hashPassword = await bcrypt.hash(user_password, 12);
 
-   const { username, email, user_password, tel, dt_birth, genre }  = req.body;
    let error;
 
    login.checkEmailExists(email)
@@ -21,7 +24,7 @@ export const createUser = (req, res) => {
             .then((phoneNumberExists) => {
                let userPhone = phoneNumberExists.shift();
 
-               register.create(username, email, user_password, tel, dt_birth, genre)
+               register.create(username, email, hashPassword, tel, dt_birth, genre)
                   .then(() => {
                      if(validateName(username) || (username.length <= 3) || (!checkWhiteSpace(username))){
                         error = 'Nome inválido';

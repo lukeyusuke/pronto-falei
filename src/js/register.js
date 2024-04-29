@@ -1,4 +1,4 @@
-import { showMenuMobile, darkLightMode } from "../components/js/screenFunctions/screenFunctions.js";
+import { showMenuMobile, darkLightMode, showHidePassword } from "../components/js/screenFunctions/screenFunctions.js";
 
 const getCreatedUser = () => {
    const signupForm = document.querySelector('.sign-up__form');
@@ -58,6 +58,7 @@ const getCreatedUser = () => {
 const init = () => {
    showMenuMobile();
    darkLightMode();
+   showHidePassword();
    getCreatedUser();
 }
 

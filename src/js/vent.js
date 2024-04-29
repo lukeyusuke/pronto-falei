@@ -10,7 +10,7 @@ const showDropdownMenu = () => {
 
     document.addEventListener('click', (e) => {
         const target = e.target;
-        
+
         if(target !== userPhoto){
             dropdownMenu.classList.remove('active');
         }
@@ -30,9 +30,9 @@ const TabNavigation = () => {
     const tabLinks = [...document.querySelector('.tabs-links').children];
     const menuLinks = [...document.querySelector('.menu-links').children];
 
-    const homeContents = [...document.querySelector('.tab-content').children]; 
+    const homeContents = [...document.querySelector('.tab-content').children];
     const menuContents = [...document.querySelector('.menu-content').children];
-    
+
     const openTab = document.querySelector('[data-open]');
     const unlockedTab = document.querySelector('[data-unlocked]')
 
@@ -45,7 +45,7 @@ const TabNavigation = () => {
             section.style.display = "none";
         })
     }
- 
+
     const removeAllActiveClass = () => {
         menuLinks.forEach(tab => {
             tab.className = tab.className.replace(" active", "")
@@ -55,7 +55,7 @@ const TabNavigation = () => {
             tab.className = tab.className.replace(" active", "")
         })
     }
- 
+
     const showCurrentTab = (id) => {
        const tabContent = document.querySelector('#' + id);
        const searchBox = document.querySelector('.menu-box__search');
@@ -67,9 +67,9 @@ const TabNavigation = () => {
 
         } else if(tabContent.id === 'recently' || tabContent.id === 'others'){
             document.querySelector('#home').style.display = "block";
-            home.classList.add('active');  
-        } 
-        
+            home.classList.add('active');
+        }
+
         if(tabContent.id === 'vents'){
             searchBox.style.display = "none"
             home.classList.remove('active');
@@ -97,7 +97,7 @@ const TabNavigation = () => {
                 vent.classList.add('active');
                 searchBox.style.display = "none";
             }
-            
+
             ventHeaderLink.addEventListener('click', () => {
                 showVentsTab();
             })
@@ -108,20 +108,20 @@ const TabNavigation = () => {
                 })
             })
         }
-        
+
         handleLinks();
     }
- 
+
     const selectTab = (e) => {
        hideAllTabContent();
        removeAllActiveClass();
- 
+
        const target = e.currentTarget;
        showCurrentTab(target.dataset.id);
- 
+
        target.className += " active"
     }
- 
+
     const listenChanges = () => {
         menuLinks.forEach(tab => {
             tab.addEventListener('click', selectTab)
@@ -136,10 +136,10 @@ const TabNavigation = () => {
     const init = () => {
         hideAllTabContent();
         listenChanges();
-  
+
         unlockedTab.click();
     }
-  
+
     return init();
 }
 
@@ -159,8 +159,143 @@ const quill = () => new Quill('.main-text', {
     }
 });
 
-showDropdownMenu();
-showSidebarMenu();
-TabNavigation();
-darkLightMode();
-quill();
+const createVent = () => {
+    const ventForm = document.querySelector('.vents-form');
+    const errorMessage = document.querySelectorAll('.error-message');
+    const successMessage = document.querySelector('.success-message');
+
+    const submitVentForm = () => {
+        ventForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const title = document.querySelector('.title');
+            const subtitle = document.querySelector('.subtitle');
+            const main_text = document.querySelector('.ql-editor'); // se eu escrevo um pouco fora do ql-editor, ele já não pega o valor (consertar)
+            
+            const ventData = {
+                title: title.textContent,
+                subtitle: subtitle.textContent,
+                main_text: main_text.textContent,
+            }
+            
+            fetch('/vent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8'
+                },
+                body: JSON.stringify(ventData)
+            }).then(response => handleResponse(response, title, subtitle, main_text))
+            .catch(err => console.log(err))
+        })
+    }
+
+    const handleResponse = (response, title, subtitle, main_text) => {
+        const errorMessages = [...errorMessage.values()];
+        
+        successMessage.classList.remove('active');
+        errorMessages.map((error) => {
+            error.classList.remove('active');
+        })
+
+        if(response.status === 400){
+            return response.json().then(handleErrorData); 
+        } else {
+            return response.json().then(data => addVent(data, title, subtitle, main_text));
+        }
+    }
+
+    const addVent = (data, title, subtitle, main_text) => {
+        const username = data.user.username;
+        const tabRecently = document.querySelector('#recently');
+    
+        const link = document.createElement('a');
+        const ventBox = document.createElement('div');
+        const ventBoxHeader = document.createElement('header');
+        const ventBoxProfile = document.createElement('div');
+        const ventBoxProfileImg = document.createElement('img');
+        const ventBoxTitle = document.createElement('div');
+        const ventBoxParagraph = document.createElement('p');
+
+        const ventBoxProfileP = document.createElement('p');
+        ventBoxProfileP.innerText = username;
+
+        const hrefAttribute = document.createAttribute('href');
+        const srcAttribute = document.createAttribute('src');
+    
+        link.setAttributeNode(hrefAttribute);
+        ventBoxProfileImg.setAttributeNode(srcAttribute);
+        srcAttribute.value = '../../../assets/images/profile-photo.jpg';
+        
+        ventBox.classList.add('vent-box');
+        ventBoxHeader.classList.add('vent-box__header');
+        ventBoxProfile.classList.add('vent-box__header__profile');
+
+        ventBoxTitle.classList.add('vent-box__title');
+        ventBoxTitle.textContent = title.textContent;
+
+        ventBoxParagraph.classList.add('vent-box__p');
+        ventBoxParagraph.textContent = main_text.textContent;
+
+        tabRecently.appendChild(link); 
+        link.appendChild(ventBox);
+        ventBox.appendChild(ventBoxHeader);
+        ventBox.appendChild(ventBoxTitle);
+        ventBox.appendChild(ventBoxParagraph);
+
+        ventBoxHeader.appendChild(ventBoxProfile);
+        ventBoxProfile.appendChild(ventBoxProfileImg);
+        ventBoxProfile.appendChild(ventBoxProfileP)
+        
+        successMessage.classList.add('active');
+        cleanDivs(title, subtitle, main_text);
+    }
+
+    const handleErrorData = (data) => {
+        const errorMessages = ['Título inválido', 'Subtítulo inválido', 'Texto inválido'];
+
+        errorMessages.filter((errorTextMessage, i) => {
+            if(errorTextMessage === data.error){
+                console.log(data.error)
+                errorMessage[i].textContent = data.error;
+                errorMessage[i].classList.add('active');
+            }
+         })
+    }
+
+    const cleanDivs = (title, subtitle, main_text) => {
+        title.textContent = 'Coloque seu título aqui';
+        subtitle.textContent = 'Coloque seu subtítulo aqui';
+        main_text.textContent = 'Escrever...';
+    }
+
+    submitVentForm();
+}
+
+const logout = () => {
+    const logout = document.querySelector('.logout');
+    logout.addEventListener('click', () => {
+        fetch('/logout', {
+            method: 'POST',
+            credentials: 'same-origin'
+        }).then((response) => {
+            if(response.ok){
+                window.location.href = '/login'
+            } else {
+                console.log('Não deu bom não');
+            }
+        })
+
+    })
+}
+
+const init = () => {
+    showDropdownMenu();
+    showSidebarMenu();
+    TabNavigation();
+    darkLightMode();
+    quill();
+    logout();
+    createVent();
+}
+
+init();

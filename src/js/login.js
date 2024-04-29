@@ -1,17 +1,4 @@
-import { showMenuMobile, darkLightMode } from "../components/js/screenFunctions/screenFunctions.js";
-
-const showHidePassword = () => {
-   const passwordInput = document.getElementById('user_password');
-   const eyeIcon = document.querySelector('.eye-icon');
-
-   eyeIcon.addEventListener('click', () => {
-      if(passwordInput.type === 'password'){
-         passwordInput.type = 'text';
-      } else {
-         passwordInput.type = 'password';
-      }
-   })
-}
+import { showMenuMobile, darkLightMode, showHidePassword } from "../components/js/screenFunctions/screenFunctions.js";
 
 const checkUser = () => {
    const signinForm = document.querySelector('.sign-in__form');
@@ -42,10 +29,13 @@ const checkUser = () => {
             errorMessage.textContent = data.error;
             errorMessage.classList.add('active');
          })
-      } else { 
-         window.location.href = "/vent";
-         inputs.map((input) => {
-            input.value = ' ';
+      } else {
+         return response.json().then(() => {
+            window.location.href = "/vent"
+            
+            inputs.map((input) => {
+               input.value = ' ';
+            })
          })
       }
    }
@@ -57,7 +47,7 @@ const init = () => {
    showMenuMobile();
    darkLightMode();
    showHidePassword();
-   checkUser()
+   checkUser();
 }
 
 init();

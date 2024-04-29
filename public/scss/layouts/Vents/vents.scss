@@ -36,21 +36,16 @@ body.dark {
 
 .main-box{
     margin-left: 5.65rem;
-    width: 100%;
     transition: .5s;
     border-left: 1px solid variables.$line-color;
+    width: 100%;
 }
 
 .vent-content{
-    padding: 8rem 5rem 8rem 10rem;
-    align-items: center;
-    @extend %center-display;
-
-    .menu-content{
-        background-color: red($color: #000000);
-    }
+    padding: 8rem 5rem 13.5rem 10rem;
 
     .tabs {
+
         &-links{
 
             button.active {
@@ -97,6 +92,7 @@ body.dark {
 
         .line {
             width: 80%;
+            max-width: 900px;
             margin-bottom: 4rem;   
         }
 
@@ -109,7 +105,7 @@ body.dark {
                 transition: .3s;
                 min-width: 500px;
                 max-width: 1000px;
-                width: 92%;
+                width: 900px;
 
                 &:hover {
                     transform: scale(1.025);
@@ -139,21 +135,23 @@ body.dark {
 
                     &__tags{
                         span {
-                            background-color: red;
-                            color: variables.$primary-color;
+                            border: 1px solid variables.$line-color;
                             margin-left: 1rem;
-                            border-radius: 1rem;
+                            border-radius: .75rem;
                             padding: .5rem 1rem;
                         }
                     }
                 }
 
                 &__title {
-                    padding: 1.5rem 0;
-                }
-
-                &__p {
                     font-family: 'Inter', sans-serif;
+                    font-size: 1.25rem;
+                    font-weight: bold;
+                    padding-top: 1.5rem;
+                }
+                
+                &__p {
+                    padding: 1.5rem 0;
                     line-height: 1.75;
                 }
             }
@@ -164,31 +162,53 @@ body.dark {
         width: 950px; // consertar esta parte
         
         .vents-form {
-            div {
+            font-family: 'Inter';
+            
+            .title, .subtitle, .main-text {
                 outline: 0;
                 width: 100%;
             }
 
             .text-header{
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
 
                 div {
-                    font-size: 1rem;
-                    font-family: 'Inter';
+                    display: flex;
+                    align-items: center;
                 }
                 
-                div:first-child{
-                    font-size: 2rem;
-                    padding: .5rem 0;
-                    font-weight: 700;
+                .text-header-title{
+                    margin-bottom: 1.25rem;
+
+                    .title{
+                        font-size: 2rem;
+                        font-weight: 700;
+                    }
                 }
+            }
+
+            .error-message, .success-message {
+                border-radius: .25rem;
+                padding: .5rem;
+                width: 200px;
+                margin-bottom: 1rem;
+            }
+
+            .error-message {
+                background-color: rgba(239, 64, 86, 0.4);
+                color: variables.$secondary-color;
+            }
+
+            .success-message {
+                background-color: rgba(61, 140, 64, 0.4);
+                color: #3D8C40;
+                width: 300px;
             }
 
             .main-text{
                 font-size: 1rem;
                 font-family: 'Istok Web', sans-serif;
                 padding: 1rem;
-                margin-bottom: 3rem;
             }
 
             .vent-btn {
