@@ -21,11 +21,10 @@ export const loginUser = async (req, res) => {
    
    login.checkEmailPasswordExists(email)
       .then(async (data) => {
-         const dataUser = data.shift();
+         const dataUser = data.shift(); 
          const password = dataUser.user_password;
-         const match = await bcrypt.compare(user_password, password);
 
-         if(!dataUser || !match){
+         if(!dataUser || !password){
             error = 'Usuário e/ou senha inválido';
             res.status(400).json({ error });
          } else {
@@ -38,9 +37,4 @@ export const loginUser = async (req, res) => {
 export const updateUser = (req, res) => {
    const { id } = req.params;
    return `Atualizando o usuário ${id}`;
-}
-
-export const deleteUser = (req, res) => {
-   const { id } = req.params;
-   return `Deletando usuário ${id}`;
 }

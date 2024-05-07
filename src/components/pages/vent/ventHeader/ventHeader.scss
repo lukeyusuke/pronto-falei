@@ -1,5 +1,5 @@
-@use '../../base/variables';
-@use '../../modules/displays';
+@use '../../../../../public/scss/base/variables';
+@use '../../../../../public/scss/modules/displays';
 
 body.dark {
     .menu-box__search {

@@ -1,0 +1,18 @@
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 4rem;
+
+    .btn-style {
+        border: 1px solid salmon;
+        padding: 1rem 3rem;
+    }
+
+    .btn-delete {
+        border: 1px solid red;
+        color: red;
+    }
+}
+
+// arrumar os botões para que fiquem com o estilo correto

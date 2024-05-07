@@ -26,6 +26,7 @@ app.set('views', [
    path.resolve(__dirname, 'src', 'views', 'Login'),
    path.resolve(__dirname, 'src', 'views', 'Register'),
    path.resolve(__dirname, 'src', 'views', 'Vent'),
+   path.resolve(__dirname, 'src', 'views', 'Profile')
 ])
 
 app.set('view engine', 'ejs');

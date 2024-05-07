@@ -3,7 +3,7 @@ import { checkWhiteSpace } from '../components/js/regexFunctions/functions.js';
 
 export const ventPage = (req, res) => {
     if(req.session.user){
-        res.render('vent', {user: req.session.user});
+        res.render('vent');
     } else {
         res.status(401).send('Você ainda não fez o Login');
     }

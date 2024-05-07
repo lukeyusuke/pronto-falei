@@ -1,0 +1,61 @@
+    <div class="main-box">
+        <section id="sign-up">
+            <h2 class="section-title"></h2>
+            <form class="sign-up__form form-content" action="/register" method="post">
+                <div class="flex-content">
+                  <div class="input-content">
+                     <div class="form__box">
+                        <label for="username">Nome</label><br/>
+                        <input class="form__box__input-box" type="text" name="username" id="username">
+                        <p class="error-message">  </p>
+                     </div>
+                     <div class="form__box">
+                        <label for="email">Email</label><br/>
+                        <input class="form__box__input-box" type="text" name="email" id="email" placeholder=""/>
+                        <p class="error-message">  </p>
+                        <p class="error-message">  </p>
+                     </div>
+                     <div class="form__box">
+                        <label for="user_password">Senha</label><br/>
+                        <div class="form__box__input">
+                           <input class="form__box__input-box" type="password" name="user_password" id="user_password"/>
+                           <svg class="eye-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="12" cy="12" r="3" stroke="#EF4056" stroke-width="2"/>
+                              <path d="M20.188 10.9343C20.5762 11.4056 20.7703 11.6412 20.7703 12C20.7703 12.3588 20.5762 12.5944 20.188 13.0657C18.7679 14.7899 15.6357 18 12 18C8.36427 18 5.23206 14.7899 3.81197 13.0657C3.42381 12.5944 3.22973 12.3588 3.22973 12C3.22973 11.6412 3.42381 11.4056 3.81197 10.9343C5.23206 9.21014 8.36427 6 12 6C15.6357 6 18.7679 9.21014 20.188 10.9343Z" stroke="#EF4056" stroke-width="2"/>
+                           </svg>
+                        </div>
+                        <p class="error-message">  </p>
+                     </div>
+                  </div>
+                  <div class="input-content">
+                     <div class="form__box">
+                        <label for="tel">Telefone</label><br/>
+                        <input class="form__box__input-box" type="text" name="tel" id="tel" placeholder="">
+                        <p class="error-message">  </p>
+                        <p class="error-message">  </p>
+                     </div>
+                     <div class="form__box">
+                        <label for="dt_birth">Data de nascimento</label><br/>
+                        <input class="form__box__input-box" type="text" name="dt_birth" id="dt_birth" disabled/>
+                        <p class="error-message">  </p>
+                     </div>
+                     <div class="form__box">
+                        <label for="genre"> Gênero </label>
+                        <select class="form__box__input-box" name="genre" id="genre">
+                           <option value=""> Escolha de gênero </option>
+                           <option value="1"> Masculino </option>
+                           <option value="2"> Feminino </option>
+                           <option value="3"> Outro </option>
+                           <option value="4"> Prefiro não dizer </option>
+                        </select>
+                        <p class="error-message">  </p>
+                     </div>
+                  </div>
+                </div>
+                <p class="success-message"> Usuário atualizado com sucesso! </p>
+                <div class="buttons">
+                    <button class="btn-style">Salvar alterações</button> <!-- Arrumar os botões -->
+                    <button class="btn-style btn-delete">Excluir conta</button>
+                </div>
+            </form>
+        </section>

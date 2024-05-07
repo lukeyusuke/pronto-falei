@@ -329,10 +329,12 @@ body.dark .introduce-content {
   padding: 5rem 0 4rem 0;
 }
 #sign-up .form-content .btn {
-  margin: 2rem auto 1.5rem auto;
+  margin-bottom: 1.5rem;
 }
 #sign-up .flex-content {
   display: flex;
+  margin: 0 auto;
+  max-width: 1400px;
   gap: 3rem;
 }
 #sign-up .flex-content .input-content {
@@ -713,6 +715,21 @@ body.dark a {
 .vent-footer-content__nav {
   display: flex;
   gap: 2.5rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+.buttons .btn-style {
+  border: 1px solid salmon;
+  padding: 1rem 3rem;
+}
+.buttons .btn-delete {
+  border: 1px solid red;
+  color: red;
 }
 
 body.dark .line {
