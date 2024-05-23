@@ -1,20 +1,5 @@
 import { showDropdownMenu, showSidebarMenu, showHidePassword, logout } from "../components/js/screenFunctions/screenFunctions.js";
 
-const deleteUser = () => {
-    const deleteButton = document.querySelector('.btn-delete');
-
-    deleteButton.addEventListener('click', () => {
-        fetch('/profile/delete', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=UTF-8'
-            },
-        }).then(response => response.json().then(() => {
-            window.location.href = "/"
-        }))
-    })
-}
-
 const selectUser = () => {
     fetch('/profile', {
         method: 'POST',
@@ -26,6 +11,7 @@ const selectUser = () => {
 }
 
 const showInputValues = (data) => { 
+
     const nome = document.getElementById("username");
     nome.placeholder = data.dataUser.username;
 
@@ -60,10 +46,48 @@ const showInputValues = (data) => {
     maskPassword();
 }
 
+const updateUser = () => {
+    const updateForm = document.querySelector('.profile-form');
+
+    const submitUpdateForm = () => {
+        updateForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(updateForm);
+
+            fetch('/profile/update', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8'
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            }).then(response => response.json().then((data) => {
+                console.log(data)
+            }))
+        })
+    }
+
+    submitUpdateForm();
+}
+
+const deleteUser = () => {
+    const deleteButton = document.querySelector('.btn-delete');
+
+    deleteButton.addEventListener('click', () => {
+        fetch('/profile/delete', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json;charset=UTF-8'
+            },
+        }).then(response => response.json().then(() => {
+            window.location.href = "/"
+        }))
+    })
+}
 
 showDropdownMenu();
 showSidebarMenu();
 showHidePassword();
 selectUser();
+updateUser();
 deleteUser();
 logout();

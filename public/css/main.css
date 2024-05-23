@@ -717,6 +717,23 @@ body.dark a {
   gap: 2.5rem;
 }
 
+.update-image {
+  position: relative;
+}
+.update-image #user-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  display: block;
+  margin: 3rem auto 4rem auto;
+}
+.update-image label {
+  cursor: pointer;
+  position: absolute;
+  bottom: 0.01rem;
+  left: 30rem;
+}
+
 .buttons {
   display: flex;
   justify-content: center;

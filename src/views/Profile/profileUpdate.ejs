@@ -1,8 +1,18 @@
     <div class="main-box">
-        <section id="sign-up">
-            <h2 class="section-title"></h2>
-            <form class="sign-up__form form-content" action="/register" method="post">
-                <div class="flex-content">
+         <section id="sign-up">
+            <form enctype="multipart/form-data" class="profile-form form-content" action="/profile" method="post">
+               <div class="update-image">
+                  <img id="user-photo" src="../../../assets/images/profile-photo.png" alt="Imagem do usuário">
+                  <label for="input-image">  
+                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="20" cy="20" r="20" fill="#EF4056"/>
+                        <path d="M12.5 18.2118C12.5 17.3585 13.1918 16.6667 14.0451 16.6667V16.6667C14.6303 16.6667 15.1653 16.3361 15.4271 15.8126L16.1111 14.4445C16.1138 14.4391 16.1151 14.4365 16.1164 14.434C16.4552 13.7609 17.1436 13.3355 17.8972 13.3334C17.9 13.3334 17.9029 13.3334 17.9089 13.3334H22.0911C22.0971 13.3334 22.1 13.3334 22.1028 13.3334C22.8564 13.3355 23.5448 13.7609 23.8836 14.434C23.8849 14.4365 23.8862 14.4391 23.8889 14.4445L24.5729 15.8126C24.8347 16.3361 25.3697 16.6667 25.9549 16.6667V16.6667C26.8082 16.6667 27.5 17.3585 27.5 18.2118V22.381C27.5 23.5779 27.5 24.1764 27.3316 24.6575C27.0301 25.5193 26.3526 26.1968 25.4908 26.4984C25.0097 26.6667 24.4112 26.6667 23.2143 26.6667H16.7857C15.5888 26.6667 14.9903 26.6667 14.5092 26.4984C13.6474 26.1968 12.9699 25.5193 12.6684 24.6575C12.5 24.1764 12.5 23.5779 12.5 22.381V18.2118Z" stroke="white" stroke-width="2"/>
+                        <path d="M22.3332 20.8333C22.3332 22.122 21.2885 23.1667 19.9998 23.1667C18.7112 23.1667 17.6665 22.122 17.6665 20.8333C17.6665 19.5447 18.7112 18.5 19.9998 18.5C21.2885 18.5 22.3332 19.5447 22.3332 20.8333Z" stroke="white" stroke-width="2"/>
+                     </svg>
+                  </label>
+                  <input type="file" name="user-photo" id="input-image" accept="image/jpeg, image/png, image/jpg"/>
+               </div>
+               <div class="flex-content">
                   <div class="input-content">
                      <div class="form__box">
                         <label for="username">Nome</label><br/>
@@ -51,11 +61,11 @@
                         <p class="error-message">  </p>
                      </div>
                   </div>
-                </div>
-                <p class="success-message"> Usuário atualizado com sucesso! </p>
-                <div class="buttons">
-                    <button class="btn-style">Salvar alterações</button> <!-- Arrumar os botões -->
-                    <button class="btn-style btn-delete">Excluir conta</button>
-                </div>
+               </div>
+               <p class="success-message"> Usuário atualizado com sucesso! </p>
+               <div class="buttons">
+                  <button class="btn-style btn-update">Salvar alterações</button> <!-- Arrumar os botões -->
+                  <button class="btn-style btn-delete">Excluir conta</button>
+               </div>
             </form>
         </section>

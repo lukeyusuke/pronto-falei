@@ -1,4 +1,3 @@
-import bcrypt from 'bcrypt';
 import Login from '../models/loginModel.js';
 
 export const loginPage = (req, res) => {
@@ -34,7 +33,7 @@ export const loginUser = async (req, res) => {
       }).catch(err => console.log(err));   
 }
 
-export const updateUser = (req, res) => {
+/* export const updateUser = (req, res) => {
    const { id } = req.params;
    return `Atualizando o usuário ${id}`;
-}
+} */
