@@ -2,6 +2,11 @@
     <div class="header-content">
         <a class="logo" href="/"> Pronto, Falei </a>
         <nav class="header-content__nav">
+            <ul class="header-content__menu vent">
+                <li class="header-content__menu__item li-home"><a>Home</a></li>
+                <li class="header-content__menu__item li-vent"><a>Desabafar</a></li>
+                <li class="header-content__menu__item li-profile"><a>Perfil</a></li>
+            </ul>
             <div class="menu-box">
                 <div class="menu-box__search">
                     <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,8 +18,8 @@
                 <img class="menu-box__profile" src="../../../assets/images/profile-photo.png" alt="Foto de perfil">
                 <div class="dropdown-menu">
                     <ul class="dropdown-menu__list">
-                        <li class="dropdown-menu__list-item">
-                            <a href="#vents">
+                        <li class="dropdown-menu__list-item li-vent">
+                            <a>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12 5.97818L12 17.9345" stroke="#222" stroke-width="2" stroke-linecap="round"/>
                                     <path d="M18 11.9564L6 11.9564" stroke="#222" stroke-width="2" stroke-linecap="round"/>
@@ -22,8 +27,8 @@
                                 <span>Desabafar</span>
                             </a>
                         </li>
-                        <li class="dropdown-menu__list-item">
-                            <a href="/profile">
+                        <li class="dropdown-menu__list-item li-profile">
+                            <a>
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M19.7274 20.4471C19.2716 19.1713 18.2672 18.0439 16.8701 17.2399C15.4729 16.4358 13.7611 16 12 16C10.2389 16 8.52706 16.4358 7.12991 17.2399C5.73276 18.0439 4.72839 19.1713 4.27259 20.4471" stroke="#222" stroke-width="2" stroke-linecap="round"/>
                                     <circle cx="12" cy="8" r="4" stroke="#222" stroke-width="2" stroke-linecap="round"/>
@@ -42,6 +47,11 @@
                         </li>
                     </ul>
                 </div>
+                <svg class="header-content__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 7H19" stroke="#222222" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M5 12H19" stroke="#222222" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M5 17H19" stroke="#222222" stroke-width="2" stroke-linecap="round"/>
+                </svg>  
             </div>
         </nav>
     </div>

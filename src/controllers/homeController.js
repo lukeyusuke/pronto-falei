@@ -6,14 +6,14 @@ export const homeIndex = (req, res) => {
 }
 
 export const homeSendEmail = (req, res) => {
-   const { nome, signup_email, mensagem } = req.body;
+   const { nome, email, mensagem } = req.body;
 
    let transporter = nodeMailer.createTransport({
       service: 'gmail',
       smtp: 'smtp.gmail.com',
       auth: {
-         user: 'projetostestando@gmail.com',
-         pass: 'lcbv kuah nfii lajg'
+         user: process.env.AUTH_USER,
+         pass: process.env.AUTH_PASSWORD,
       },
       tls: {
          rejectUnauthorized: false
@@ -21,8 +21,8 @@ export const homeSendEmail = (req, res) => {
    })
 
    const configEmail = {
-      from: `${nome} <${signup_email}>`,
-      to: 'projetostestando@gmail.com',
+      from: `${nome} <${email}>`,
+      to: 'meusprojetos78@gmail.com',
       subject: 'Feedback - Pronto, Falei',
       text: mensagem,
    }
@@ -30,11 +30,11 @@ export const homeSendEmail = (req, res) => {
    const validateForm = () => {
       let error;
 
-      if(validateName(nome) || (nome.length <= 3) || (!checkWhiteSpace(nome))){
+      if(validateName(nome) || nome.length <= 3 || !checkWhiteSpace(nome)){
          error = 'Nome inválido';
          res.status(400).json({ error });
 
-      } else if(!validateEmail(signup_email)){
+      } else if(!validateEmail(email)){
          error = 'Email inválido'
          res.status(400).json({ error });
 

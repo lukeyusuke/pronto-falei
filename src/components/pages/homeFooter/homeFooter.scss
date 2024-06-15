@@ -2,6 +2,18 @@
 @use '../../../../public/scss/modules/displays';
 @use '../../../../public/scss/modules/mixins';
 
+body.dark {
+   .change-bg {
+      .moon {
+         display: none;
+      }
+
+      .sun {
+         display: block;
+      }
+   }
+}
+
 .footer-content{
    padding: 1.5rem 2rem;
    display: flex;
@@ -10,10 +22,16 @@
 
    &__social-medias{
       display: flex;
-      gap: 1rem;
       
       &__box{
+         margin-right: .5rem;
          cursor: pointer;
+
+         svg { 
+            path {
+               transition: .5s;
+            }
+         }
 
          &:nth-child(1):hover{
             svg{
@@ -34,15 +52,34 @@
                }
             }
          }
-         
-         &:nth-child(3):hover{
-            svg{
-               fill: variables.$moon-color;
+      }
 
-               path{
-                  fill: variables.$primary-color;
-               }
+      .change-bg {
+         svg {
+            cursor: pointer;
+
+            path {
+               transition: .5s;
             }
+         }
+
+         .sun {
+            display: none;
+         }
+
+         .moon:hover {
+            path {
+               fill: variables.$primary-color;
+            }
+            fill: variables.$moon-color;
+         }
+
+         .sun:hover {
+            circle, path {
+               stroke: variables.$primary-color
+            }
+
+            fill: variables.$sun-color;
          }
       }
    }

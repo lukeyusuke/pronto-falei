@@ -1,5 +1,3 @@
-import bcrypt from 'bcrypt';
-import Login from '../models/loginModel.js';
 import Register from '../models/registerModel.js';
 import { validateName, validateEmail, checkWhiteSpace, validatePhoneNumber } from '../components/js/regexFunctions/functions.js';
 
@@ -8,61 +6,41 @@ export const registerPage = (req, res) => {
 }
 
 export const createUser = async (req, res) => {
-   const login = new Login();
    const register = new Register();
    
    const { username, email, user_password, tel, dt_birth, genre } = req.body;
 
    let error;
 
-   login.checkEmailExists(email)
+   register.checkEmailExists(email)
       .then((emailExists) => {
          let userEmail = emailExists.shift();
 
-         login.checkPhoneNumberExists(tel)
+         register.checkPhoneNumberExists(tel)
             .then((phoneNumberExists) => {
                let userPhone = phoneNumberExists.shift();
 
                register.create(username, email, user_password, tel, dt_birth, genre)
-                  .then(() => {
-                     if(validateName(username) || (username.length <= 3) || (!checkWhiteSpace(username))){
-                        error = 'Nome inválido';
-                        res.status(400).json({ error });
-               
-                     } else if(!validateEmail(email)){
-                        error = 'Email inválido'
-                        res.status(400).json({ error });
-      
-                     } else if(userEmail){
-                        error = 'Este email já está em uso';
-                        res.status(400).json({ error });
-            
-                     } else if(user_password.length <= 3 || user_password.length > 40){
-                        error = 'Senha inválida';
-                        res.status(400).json({ error });
-            
-                     } else if(!validatePhoneNumber(tel) || tel.length < 15){
-                        error = 'Telefone inválido';
-                        res.status(400).json({ error });
-
-                     } else if(userPhone){
-                        error = 'Este telefone já está em uso';
-                        res.status(400).json({ error });
-            
-                     } else if(dt_birth === '') {
-                        error = 'Coloque sua data de nascimento!';
-                        res.status(400).json({ error })
-            
-                     } else if (genre === '') {
-                        error = 'Selecione um gênero!';
-                        res.status(400).json({ error })
-            
-                     } else {
-                        let success = 'Cadastro feito com sucesso!!'
-                        res.status(200).json({ success });
+                  const validationRules = [
+                     { validate: () => validateName(username) || username.length <= 3 || !checkWhiteSpace(username), errorMessage: 'Nome inválido'},
+                     { validate: () => !validateName(email), errorMessage: 'Email inválido'},
+                     { validate: () => userEmail, errorMessage: 'Este email já está em uso'},
+                     { validate: () => user_password.length <= 3, errorMessage: 'Senha inválida'},
+                     { validate: () => !validatePhoneNumber(tel) || tel.length < 15, errorMessage: 'Telefone inválido'},
+                     { validate: () => userPhone, errorMessage: 'Este telefone já está em uso'},
+                     { validate: () => dt_birth === '', errorMessage: 'Coloque sua data de nascimento!'},
+                     { validate: () => genre === '', errorMessage: 'Selecione um gênero!',
+                     },
+                  ];
+          
+                  for (const { validate, errorMessage } of validationRules) {
+                     if (validate()) {
+                        return res.status(400).json({ error: errorMessage });
                      }
-                  })
-                  .catch(err => console.log(err));
+                  }
+          
+                  let success = 'Cadastro feito com sucesso!!';
+                  res.status(200).json({ success });
                }
             )
       }).catch((err) => console.log(err));

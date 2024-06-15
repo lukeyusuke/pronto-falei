@@ -1,13 +1,5 @@
 import Profile from '../models/profileModel.js';
 
-export const profilePage = (req, res) => {
-    if(req.session.user){
-        res.render('profile');
-    } else {
-        res.status(401).send('Você ainda não fez o Login');
-    }
-}
-
 export const selectUser = (req, res) => {
     const profile = new Profile();
 

@@ -11,6 +11,28 @@ class Register{
          })
       })
    }
+
+   checkEmailExists(email){
+      const sql = `SELECT email from users WHERE email = '${email}'`
+
+      return new Promise((resolve, reject) => {
+         databaseConnection.query(sql, (err, result) => {
+            if(err) console.log('Deu ruim na consulta ao BD');
+            resolve(result);
+         })
+      })
+   }
+
+   checkPhoneNumberExists(tel){
+      const sql = `SELECT tel from users WHERE tel = '${tel}'`
+
+      return new Promise((resolve, reject) => {
+         databaseConnection.query(sql, (err, result) => {
+            if(err) console.log('Deu ruim na consulta ao BD');
+            resolve(result);
+         })
+      })
+   }
 }
 
 export default Register;

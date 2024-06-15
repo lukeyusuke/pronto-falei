@@ -25,6 +25,10 @@
       &:hover{
          background-color: variables.$secondary-color;
 
+         b {
+            color: variables.$primary-color;
+         }
+
          .about-us__info__box__title{
             color: variables.$primary-color;
 

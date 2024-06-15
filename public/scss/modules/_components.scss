@@ -91,8 +91,16 @@ body.dark{
    }
 }
 
+.error-message, .success-message {
+   border-radius: .25rem;
+   padding: .5rem;
+   width: 300px;
+   margin-bottom: 1rem;
+}
+
 .error-message{
-   @include mixins.message(#f03e3e);
+   @include mixins.message(variables.$secondary-color);
+   background-color: rgba(239, 64, 86, 0.4);
 
    &.active{
       display: block;
@@ -100,7 +108,8 @@ body.dark{
 }
 
 .success-message{
-   @include mixins.message(#59b366);
+   @include mixins.message(#3D8C40);
+   background-color: rgba(61, 140, 64, 0.4);
 
    &.active{
       display: block;

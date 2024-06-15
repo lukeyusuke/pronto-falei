@@ -2,22 +2,30 @@ export const showMenuMobile = () => {
    const menuIcon = document.querySelector('.header-content__icon');
    const navMenu = document.querySelector('.header-content__nav');
 
-   menuIcon.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-   })
+    menuIcon.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    })
+
+    document.addEventListener('click', (e) => {
+        const target = e.target;
+ 
+        if(target !== menuIcon){
+            navMenu.classList.remove('active');
+        }
+    })
 };
 
 export const darkLightMode = () => {
    const changeBg = document.querySelector('.change-bg');
 
-   changeBg.addEventListener('click', () => {
-      document.body.classList.toggle("dark");
-   })
+    changeBg.addEventListener('click', () => {
+        document.body.classList.toggle("dark");
+    })
 };
 
 export const showHidePassword = () => {
-   const passwordInput = document.getElementById('user_password');
-   const eyeIcon = document.querySelector('.eye-icon');
+    const passwordInput = document.getElementById('user_password');
+    const eyeIcon = document.querySelector('.eye-icon');
 
    eyeIcon.addEventListener('click', () => {
       if(passwordInput.type === 'password'){
@@ -32,17 +40,17 @@ export const showDropdownMenu = () => {
    const userPhoto = document.querySelector('.menu-box__profile');
    const dropdownMenu = document.querySelector('.dropdown-menu');
 
-   userPhoto.addEventListener('click', () => {
+    userPhoto.addEventListener('click', () => {
        dropdownMenu.classList.toggle('active');
-   });
+    });
 
-   document.addEventListener('click', (e) => {
+    document.addEventListener('click', (e) => {
        const target = e.target;
 
        if(target !== userPhoto){
            dropdownMenu.classList.remove('active');
        }
-   })
+    })
 }
 
 export const showSidebarMenu = () => {
@@ -64,12 +72,12 @@ export const tabNavigation = () => {
    const unlockedTab = document.querySelector('[data-unlocked]')
 
     const hideAllTabContent = () => {
-        menuContents.forEach(section => {
-           section.style.display = "none";
-        })
-
         homeContents.forEach(section => {
             section.style.display = "none";
+        })
+
+        menuContents.forEach(section => {
+           section.style.display = "none";
         })
     }
 
@@ -81,13 +89,14 @@ export const tabNavigation = () => {
         tabLinks.forEach(tab => {
            tab.className = tab.className.replace(" active", "")
         })
-   }
+    }
 
     const showCurrentTab = (id) => {
       const tabContent = document.querySelector('#' + id);
       const searchBox = document.querySelector('.menu-box__search');
       const home = document.querySelector('.menu-links__home');
       const vent = document.querySelector('.menu-links__vents');
+      const profile = document.querySelector('.menu-links__profile');
 
         if(tabContent.id === 'home'){
            openTab.click();
@@ -98,35 +107,68 @@ export const tabNavigation = () => {
         }
 
         if(tabContent.id === 'vents'){
-            searchBox.style.display = "none"
+            searchBox.style.display = "none";
             home.classList.remove('active');
-        } else {
+
+        } else if(tabContent.id === 'profile') {
             searchBox.style.display = "block";
+            home.classList.remove('active');
         }
 
-       tabContent.style.display = "block";
+        tabContent.style.display = "block";
 
         const handleLinks = () => {
-           const footerLinks = [...document.querySelector('.vent-footer-content__nav').children];
-           const ventHeaderLink = document.querySelector('.dropdown-menu__list-item');
+            const footerLinks = [...document.querySelector('.vent-footer-content__nav').children];
+            const dropdownHomeLink = document.querySelector('.li-home');
+
+            const dropdownVentLink = document.querySelectorAll('.li-vent');
+            const dropdownVentsLink = [...dropdownVentLink.values()];
+
+            const dropdownProfileLink = document.querySelectorAll('.li-profile');
+            const dropdownProfilesLink = [...dropdownProfileLink.values()];
 
             const showHomeTab = () => {
                 document.querySelector('#home').style.display = "block";
                 document.querySelector('#vents').style.display = "none";
+                document.querySelector('#profile').style.display = "none";
                 home.classList.add('active');
                 vent.classList.remove('active');
+                profile.classList.remove('remove');
             }
 
             const showVentsTab = () => {
                 document.querySelector('#home').style.display = "none";
                 document.querySelector('#vents').style.display = "block";
+                document.querySelector('#profile').style.display = "none";
                 home.classList.remove('active');
                 vent.classList.add('active');
+                profile.classList.remove('active');
                 searchBox.style.display = "none";
             }
 
-            ventHeaderLink.addEventListener('click', () => {
-                showVentsTab();
+            const showProfileTab = () => {
+                document.querySelector('#home').style.display = "none";
+                document.querySelector('#vents').style.display = "none";
+                document.querySelector('#profile').style.display = "block";
+                home.classList.remove('active');
+                vent.classList.remove('active');
+                profile.classList.add('active');
+            }
+
+            dropdownHomeLink.addEventListener('click', () => {
+                showHomeTab();
+            })
+
+            dropdownVentsLink.map((ventLink) => {
+                ventLink.addEventListener('click', () => {
+                    showVentsTab()
+                })
+            })
+
+            dropdownProfilesLink.map((profileLink) => {
+                profileLink.addEventListener('click', () => {
+                    showProfileTab()
+                })
             })
 
             footerLinks.map((link) => {
@@ -158,14 +200,16 @@ export const tabNavigation = () => {
             tab.addEventListener('click', selectTab)
         })
 
+        
+
     }
 
-   const init = () => {
+    const init = () => {
        hideAllTabContent();
        listenChanges();
 
        unlockedTab.click();
-   }
+    }
 
    return init();
 }
@@ -173,16 +217,15 @@ export const tabNavigation = () => {
 export const logout = () => {
    const logout = document.querySelector('.logout');
    logout.addEventListener('click', () => {
-       fetch('/logout', {
+        fetch('/logout', {
            method: 'POST',
            credentials: 'same-origin'
-       }).then((response) => {
-           if(response.ok){
+        }).then((response) => {
+            if(response.ok){
                window.location.href = '/login'
-           } else {
+            } else {
                console.log('Não deu bom não');
-           }
-       })
-
-   })
+            }
+        })
+    })
 }

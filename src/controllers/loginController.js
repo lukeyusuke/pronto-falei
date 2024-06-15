@@ -18,12 +18,11 @@ export const loginUser = async (req, res) => {
    
    let error;
    
-   login.checkEmailPasswordExists(email)
+   login.checkEmailPasswordExists(email, user_password)
       .then(async (data) => {
          const dataUser = data.shift(); 
-         const password = dataUser.user_password;
 
-         if(!dataUser || !password){
+         if(!dataUser){
             error = 'Usuário e/ou senha inválido';
             res.status(400).json({ error });
          } else {
@@ -32,8 +31,3 @@ export const loginUser = async (req, res) => {
          }
       }).catch(err => console.log(err));   
 }
-
-/* export const updateUser = (req, res) => {
-   const { id } = req.params;
-   return `Atualizando o usuário ${id}`;
-} */

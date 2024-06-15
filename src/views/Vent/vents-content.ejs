@@ -8,33 +8,32 @@
                             <button class="tab-links__others" data-id="others">Outros</button>
                         </div>
                         <div class="line">  </div>
-
                         <div class="tab-content">
                             <section id="recently">
-                                <a href="">
+                                <a>
                                     <div class="vent-box">
                                         <header class="vent-box__header">
                                             <div class="vent-box__header__profile">
-                                                <img src="../../../assets/images/profile-photo.jpg" alt="Foto do usuário">
+                                                <img src="../../../assets/images/profile-photo.png" alt="Foto do usuário">
                                                 <p> Giovana Nunes </p>
                                             </div>
                                         </header>
                                         <h1 class="vent-box__title text">Fui traída pelo meu marido</h1>
                                         <p class="vent-box__p text">Meu nome é Giovana, e hoje eu quero compartilhar uma parte da minha vida que foi extremamente dolorosa: fui traída pelo meu marido. Lembro-me claramente do momento em que descobri a traição, como se fosse ontem. Nós tínhamos construído uma vida juntos, com sonhos.....</p>
                                     </div>
-                                </a>   
+                                </a>     
                             </section>
                             <section id="others">
-                                <a href="">
+                                <a>
                                     <div class="vent-box">
                                         <header class="vent-box__header">
                                             <div class="vent-box__header__profile">
-                                                <img src="../../../assets/images/profile-photo.jpg" alt="Foto do usuário">
-                                                <p> Giovana Nunes </p>
+                                                <img src="../../../assets/images/profile-photo.png" alt="Foto do usuário">
+                                                <p> Marcelo Tavares </p>
                                             </div>
                                         </header>
-                                        <h1 class="vent-box__title">Fui traída pelo meu marido</h1>
-                                        <p class="vent-box__p">Meu nome é Giovana, e hoje eu quero compartilhar uma parte da minha vida que foi extremamente dolorosa: fui traída pelo meu marido. Lembro-me claramente do momento em que descobri a traição, como se fosse ontem. Nós tínhamos construído uma vida juntos, com sonhos.....</p>
+                                        <h1 class="vent-box__title">Já não estou aguentando mais essa vida</h1>
+                                        <p class="vent-box__p">Meu nome é Marcelo e parece que tudo que eu tenho tentado nesses últimos tempos não tem dado certo, eu já não sei mais o que fazer</p>
                                     </div>
                                 </a>                   
                             </section>
@@ -45,12 +44,12 @@
                     <form action="/vent" class="vents-form">
                         <span class="success-message"> Desabafo postado com sucesso! </span>
                         <div class="text-header">
-                            <div class="text-header-title">
-                                <div contenteditable="true" class="title">Coloque seu título aqui</div><br/>
+                            <div class="text-header__title">
+                                <div contenteditable="true" class="title">Coloque seu título aqui</div>
                                 <span class="error-message">  </span>
                             </div>
-                            <div class="text-header-subtitle">
-                                <div contenteditable="true" class="subtitle">Coloque seu subtítulo aqui</div><br/>
+                            <div class="text-header__subtitle">
+                                <div contenteditable="true" class="subtitle">Coloque seu subtítulo aqui</div>
                                 <span class="error-message">  </span>
                             </div>
                         </div>
@@ -58,6 +57,67 @@
                         <span class="error-message">  </span>
                         <button class="btn vent-btn"> Publicar </button>
                     </form>
+                </article>
+                <article id="profile">
+                    <section id="sign-up">
+                        <form class="profile-form form-content" action="/profile" method="post">
+                           <div class="flex-content">
+                              <div class="input-content">
+                                 <div class="form__box">
+                                    <label for="username">Nome</label><br/>
+                                    <input class="form__box__input-box" type="text" name="username" id="username">
+                                    <p class="error-message">  </p>
+                                 </div>
+                                 <div class="form__box">
+                                    <label for="email">Email</label><br/>
+                                    <input class="form__box__input-box" type="text" name="email" id="email" placeholder=""/>
+                                    <p class="error-message">  </p>
+                                    <p class="error-message">  </p>
+                                 </div>
+                                 <div class="form__box">
+                                    <label for="user_password">Senha</label><br/>
+                                    <div class="form__box__input">
+                                       <input class="form__box__input-box" type="password" name="user_password" id="user_password"/>
+                                       <svg class="eye-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <circle cx="12" cy="12" r="3" stroke="#EF4056" stroke-width="2"/>
+                                          <path d="M20.188 10.9343C20.5762 11.4056 20.7703 11.6412 20.7703 12C20.7703 12.3588 20.5762 12.5944 20.188 13.0657C18.7679 14.7899 15.6357 18 12 18C8.36427 18 5.23206 14.7899 3.81197 13.0657C3.42381 12.5944 3.22973 12.3588 3.22973 12C3.22973 11.6412 3.42381 11.4056 3.81197 10.9343C5.23206 9.21014 8.36427 6 12 6C15.6357 6 18.7679 9.21014 20.188 10.9343Z" stroke="#EF4056" stroke-width="2"/>
+                                       </svg>
+                                    </div>
+                                    <p class="error-message">  </p>
+                                 </div>
+                              </div>
+                              <div class="input-content">
+                                 <div class="form__box">
+                                    <label for="tel">Telefone</label><br/>
+                                    <input class="form__box__input-box" type="text" name="tel" id="tel" placeholder="">
+                                    <p class="error-message">  </p>
+                                    <p class="error-message">  </p>
+                                 </div>
+                                 <div class="form__box">
+                                    <label for="dt_birth">Data de nascimento</label><br/>
+                                    <input class="form__box__input-box" type="text" name="dt_birth" id="dt_birth" disabled/>
+                                    <p class="error-message">  </p>
+                                 </div>
+                                 <div class="form__box">
+                                    <label for="genre"> Gênero </label>
+                                    <select class="form__box__input-box" name="genre" id="genre">
+                                       <option value=""> Escolha de gênero </option>
+                                       <option value="1"> Masculino </option>
+                                       <option value="2"> Feminino </option>
+                                       <option value="3"> Outro </option>
+                                       <option value="4"> Prefiro não dizer </option>
+                                    </select>
+                                    <p class="error-message">  </p>
+                                 </div>
+                              </div>
+                           </div>
+                           <p class="success-message"> Usuário atualizado com sucesso! </p>
+                           <div class="buttons">
+                              <button class="btn btn-update">Salvar alterações</button> <!-- Arrumar os botões -->
+                              <button class="btn btn-delete">Excluir conta</button>
+                           </div>
+                        </form>
+                     </section>
                 </article>
             </div>
         </main>

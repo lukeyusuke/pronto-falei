@@ -1,5 +1,6 @@
 @use '../../../../../public/scss/base/variables';
 @use '../../../../../public/scss/modules/displays';
+@use '../../../../../public/scss/modules/mixins';
 
 body.dark {
     .menu-box__search {
@@ -23,6 +24,10 @@ body.dark {
 }
 
 .header-content{
+    .vent {
+        display: none;
+    }
+
     position: relative;
 
     .menu-box{
@@ -63,6 +68,7 @@ body.dark {
             display: none;
             right: 1.7rem;
             top: 6rem;
+            z-index: 1;
 
             &::before {
                 content: '';
@@ -109,6 +115,24 @@ body.dark {
                             color: variables.$secondary-color;
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+@include mixins.small-screen {
+    .header-content {        
+        .menu-box {
+            padding-right: 0;
+
+            .header-content__icon {
+                margin-left: 1rem;
+            }
+
+            &__search {
+                svg, input {
+                    display: none;
                 }
             }
         }

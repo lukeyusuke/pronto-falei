@@ -43,9 +43,14 @@ body.dark {
 
 .vent-content{
     padding: 8rem 5rem 13.5rem 10rem;
+    @extend %center-display;
+
+    .menu-content {
+        max-width: 950px;
+        width: 100%;
+    }
 
     .tabs {
-
         &-links{
 
             button.active {
@@ -103,9 +108,9 @@ body.dark {
                 margin-bottom: 3rem;
                 padding: 1.5rem 2rem 2rem 2rem;
                 transition: .3s;
-                min-width: 500px;
-                max-width: 1000px;
-                width: 900px;
+                min-width: 400px;
+                max-width: 950px;
+                width: 100%;
 
                 &:hover {
                     transform: scale(1.025);
@@ -132,15 +137,6 @@ body.dark {
                             color: variables.$github-color;
                         }
                     }
-
-                    &__tags{
-                        span {
-                            border: 1px solid variables.$line-color;
-                            margin-left: 1rem;
-                            border-radius: .75rem;
-                            padding: .5rem 1rem;
-                        }
-                    }
                 }
 
                 &__title {
@@ -159,7 +155,7 @@ body.dark {
     }
 
     #vents {
-        width: 950px; // consertar esta parte
+        width: 100%;
         
         .vents-form {
             font-family: 'Inter';
@@ -177,7 +173,7 @@ body.dark {
                     align-items: center;
                 }
                 
-                .text-header-title{
+                .text-header__title{
                     margin-bottom: 1.25rem;
 
                     .title{
@@ -188,20 +184,10 @@ body.dark {
             }
 
             .error-message, .success-message {
-                border-radius: .25rem;
-                padding: .5rem;
                 width: 200px;
-                margin-bottom: 1rem;
-            }
-
-            .error-message {
-                background-color: rgba(239, 64, 86, 0.4);
-                color: variables.$secondary-color;
             }
 
             .success-message {
-                background-color: rgba(61, 140, 64, 0.4);
-                color: #3D8C40;
                 width: 300px;
             }
 
@@ -219,4 +205,43 @@ body.dark {
             }
         }
     }
+}
+
+@include mixins.second-small-screen {
+    .main-box {
+        margin-left: 0;
+        border-left: 0;
+    }
+
+    .vent-content {
+        padding: 4rem 2rem;
+
+        .tabs {
+            &-links {
+                display: flex;
+                justify-content: center;
+            }
+
+            .line {
+                margin: 0 auto 4rem auto; 
+            }
+        }
+
+        #vents {
+            .vents-form {
+                .vent-btn {
+                    display: block;
+                    position: static;
+                    margin: 5rem auto 1rem auto;
+                }
+
+                .text-header {
+                    div {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
 }

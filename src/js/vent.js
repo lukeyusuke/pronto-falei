@@ -1,5 +1,5 @@
 import { darkLightMode } from "../components/js/screenFunctions/screenFunctions.js";
-import { showDropdownMenu, showSidebarMenu, tabNavigation, logout } from "../components/js/screenFunctions/screenFunctions.js";
+import { showDropdownMenu, showMenuMobile, showSidebarMenu, tabNavigation, logout } from "../components/js/screenFunctions/screenFunctions.js";
 
 const quill = () => new Quill('.main-text', {
     theme: 'snow',
@@ -28,7 +28,7 @@ const createVent = () => {
 
             const title = document.querySelector('.title');
             const subtitle = document.querySelector('.subtitle');
-            const main_text = document.querySelector('.ql-editor'); // se eu escrevo um pouco fora do ql-editor, ele já não pega o valor (consertar)
+            const main_text = document.querySelector('.ql-editor');
             
             const ventData = {
                 title: title.textContent,
@@ -63,7 +63,7 @@ const createVent = () => {
     }
 
     const addVent = (data, title, subtitle, main_text) => {
-        // console.log(data);
+        console.log(data);
         const username = data.user.username;
         const tabRecently = document.querySelector('#recently');
     
@@ -83,7 +83,7 @@ const createVent = () => {
     
         link.setAttributeNode(hrefAttribute);
         ventBoxProfileImg.setAttributeNode(srcAttribute);
-        srcAttribute.value = '../../../assets/images/profile-photo.jpg';
+        srcAttribute.value = '../../../assets/images/profile-photo.png';
         
         ventBox.classList.add('vent-box');
         ventBoxHeader.classList.add('vent-box__header');
@@ -130,14 +130,102 @@ const createVent = () => {
     submitVentForm();
 }
 
+const selectUser = () => {
+    fetch('/profile', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8'
+        },
+    }).then(response => response.json().then((data => showInputValues(data))))
+    .catch(err => console.log(err));
+}
+
+const showInputValues = (data) => { 
+
+    const nome = document.getElementById("username");
+    nome.placeholder = data.dataUser.username;
+
+    const email = document.getElementById("email");
+    email.placeholder = data.dataUser.email;
+
+    const tel = document.getElementById("tel");
+    tel.placeholder = data.dataUser.tel;
+
+    const genre = document.getElementById("genre");
+    genre.selectedIndex = data.dataUser.genre;
+
+    const handleDateBirthday = () => {
+        const date = new Date(data.dataUser.dt_birth);
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+        const year = date.getFullYear().toString();
+    
+        const formattedDate = `${month}/${day}/${year}`;
+        const dtBirth = document.getElementById("dt_birth");
+        dtBirth.placeholder = formattedDate;
+    }
+
+    const maskPassword = () => {
+        const password = document.getElementById('user_password');
+        const passwordValue = data.dataUser.user_password;
+        const maskedPlaceholder = '*'.repeat(passwordValue.length);
+        password.placeholder = maskedPlaceholder;
+    }
+
+    handleDateBirthday();
+    maskPassword();
+}
+
+const updateUser = () => {
+    const updateForm = document.querySelector('.profile-form');
+
+    const submitUpdateForm = () => {
+        updateForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(updateForm);
+
+            fetch('/profile/update', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8'
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            }).then(response => response.json().then((data) => {
+                console.log(data)
+            }))
+        })
+    }
+
+    submitUpdateForm();
+}
+
+const deleteUser = () => {
+    const deleteButton = document.querySelector('.btn-delete');
+
+    deleteButton.addEventListener('click', () => {
+        fetch('/profile/delete', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json;charset=UTF-8'
+            },
+        }).then(response => response.json().then(() => {
+            window.location.href = "/"
+        }))
+    })
+}
+
 const init = () => {
     showDropdownMenu();
+    showMenuMobile();
     showSidebarMenu();
     tabNavigation();
     darkLightMode();
-    quill();
-    logout();
     createVent();
+    quill();
+    selectUser();
+    updateUser();   
+    deleteUser();
+    logout();
 }
 
 init();

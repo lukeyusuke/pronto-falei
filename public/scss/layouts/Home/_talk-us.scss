@@ -11,14 +11,15 @@
 
    &__form{
       width: 45%;
+      min-width: 350px;
       font-family: 'Inter', sans-serif;
    }
 }
 
-@include mixins.small-screen{
+@include mixins.tablet-screen{
    .talk-us-content{
       &__form{
-         width: 100%;
+         width: 70%;
       }
    }
 }

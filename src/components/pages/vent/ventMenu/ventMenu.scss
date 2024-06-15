@@ -1,4 +1,5 @@
 @use '../../../../../public/scss/base/variables';
+@use '../../../../../public/scss/modules/mixins';
 
 body.dark {
     .sidebar-content{
@@ -8,17 +9,13 @@ body.dark {
             }
         }
 
-        .sidebar__list-item + .sidebar__list-item{
-            svg path, svg ellipse {
-                stroke: variables.$primary-color;
-            }
-
+        .sidebar__list-item{
             span {
                 transition: .3s;
             }
 
             &:hover {
-                svg path, svg ellipse {
+                svg path, svg ellipse, svg circle {
                     stroke: variables.$secondary-color;
                 }
 
@@ -27,20 +24,21 @@ body.dark {
                 }
             }            
         }
+
+        .change-bg {
+            background: url('../../../assets/images/light.png') no-repeat center / cover;
+            transition: 1s;
+    
+            .moon {
+                display: none;
+            }
+    
+            .sun {
+                display: block;
+            }
+        }
     }
 
-    .change-bg {
-        background: url('../../../assets/images/light.png') no-repeat center / cover;
-        transition: 1s;
-
-        .moon {
-            display: none;
-        }
-
-        .sun {
-            display: block;
-        }
-    }
 }
 
 .all-content{
@@ -94,12 +92,12 @@ body.dark {
                 padding: .5rem;
                 align-items: center;
                 
-                svg path, svg ellipse {
+                svg path, svg ellipse, svg circle {
                     transition: .3s;
                 }
                 
                 &:hover {
-                    svg path, svg ellipse {
+                    svg path, svg ellipse, svg circle {
                         stroke: variables.$secondary-color;
                     }
                 }
@@ -115,7 +113,7 @@ body.dark {
                 background-color: rgba(239, 64, 86, 0.4);
                 color: variables.$secondary-color;
 
-                svg path, svg ellipse {
+                svg path, svg ellipse, svg circle {
                     stroke: variables.$secondary-color;
                 }
             }
@@ -134,5 +132,11 @@ body.dark {
         .sun {
             display: none;
         }
+    }
+}
+
+@include mixins.second-small-screen {
+    #sidebar {
+        display: none;
     }
 }
