@@ -9,6 +9,9 @@
     "scss": "sass --watch ./public/scss/main.scss:./public/css/main.css",
     "dev": "npm-run-all --parallel start scss"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "type": "module",
   "keywords": [],
   "author": "Luke <lukedev09@gmail.com>",
