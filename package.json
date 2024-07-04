@@ -5,11 +5,14 @@
   "main": "routes.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "scss": "sass --watch ./public/scss/main.scss:./public/css/main.css",
     "dev": "npm-run-all --parallel start scss"
   },
   "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
   "keywords": [],
   "author": "Luke <lukedev09@gmail.com>",
   "license": "MIT",

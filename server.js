@@ -32,6 +32,8 @@ app.set('views', [
 app.set('view engine', 'ejs');
 app.use(routes);
 
-app.listen(3000, () => {
-   console.log('Servidor http://localhost:3000');
+const port = process.env.PORT;
+
+app.listen(port, () => {
+   console.log(`Servidor ${port}`)
 })
