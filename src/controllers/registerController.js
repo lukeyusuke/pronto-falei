@@ -7,25 +7,20 @@ export const registerPage = (req, res) => {
 
 export const createUser = async (req, res) => {
    const register = new Register();
-   
-   const { username, email, user_password, tel, dt_birth, genre } = req.body;
+   const { username, email, password, tel, dt_birth, genre } = req.body;
 
    let error;
 
    register.checkEmailExists(email)
-      .then((emailExists) => {
-         let userEmail = emailExists.shift();
-
+      .then((userEmail) => {
          register.checkPhoneNumberExists(tel)
-            .then((phoneNumberExists) => {
-               let userPhone = phoneNumberExists.shift();
-
-               register.create(username, email, user_password, tel, dt_birth, genre)
+            .then((userPhone) => {
+               register.create(username, email, password, tel, dt_birth, genre)
                   const validationRules = [
                      { validate: () => validateName(username) || username.length <= 3 || !checkWhiteSpace(username), errorMessage: 'Nome inválido'},
                      { validate: () => !validateName(email), errorMessage: 'Email inválido'},
                      { validate: () => userEmail, errorMessage: 'Este email já está em uso'},
-                     { validate: () => user_password.length <= 3, errorMessage: 'Senha inválida'},
+                     { validate: () => password.length <= 3, errorMessage: 'Senha inválida'},
                      { validate: () => !validatePhoneNumber(tel) || tel.length < 15, errorMessage: 'Telefone inválido'},
                      { validate: () => userPhone, errorMessage: 'Este telefone já está em uso'},
                      { validate: () => dt_birth === '', errorMessage: 'Coloque sua data de nascimento!'},

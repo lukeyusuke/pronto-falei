@@ -1,26 +1,22 @@
-import { databaseConnection } from "../database.js";
+import { supabase } from '../database.js';
 
 class Vent{
-   listVents() {
-      const sql = "SELECT * FROM reports";
-
-      return new Promise((resolve, reject) => {
-         databaseConnection.query(sql, (err, result) => {
-            if(err) reject(err);
-            resolve(result);
-         })
-      })
+   async listVents() {
+      const { data, error } = await supabase
+         .from('reports')
+         .select('*')
    }
 
-   create(title, subtitle, main_text){
-      const sql = `INSERT INTO reports (title, subtitle, main_text) values ('${title}', '${subtitle}', '${main_text}')`;
+   async create(title, subtitle, main_text){
+      const { data: vent, error } = await supabase
+      .from('reports')
+      .insert([{ 
+         title, 
+         subtitle, 
+         main_text,
+      }]);
 
-      return new Promise((resolve, reject) => {
-         databaseConnection.query(sql, (err, result) => {
-            if(err) console.log('Não deu para concluir a postagem do relato');
-            resolve(result);
-         })
-      })
+      return vent;
    }
 }
 

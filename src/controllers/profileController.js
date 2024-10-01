@@ -14,10 +14,10 @@ export const selectUser = (req, res) => {
 
 export const updateUser = (req, res) => {
     const profile = new Profile();
-    const {username, email, user_password, tel, dt_birth, genre} = req.body;
+    const {username, email, password, tel} = req.body;
 
     const updateFields = Object.fromEntries(
-        Object.entries({ username, email, user_password, tel, genre })
+        Object.entries({ username, email, password, tel })
             .filter(([, value]) => value)
     );
 

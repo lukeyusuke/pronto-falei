@@ -1,37 +1,39 @@
-import { databaseConnection } from "../database.js";
-
+import { supabase } from '../database.js';
 class Register{
-   create(username, email, user_password, tel, dt_birth, genre){
-      const sql = `INSERT INTO users (username, email, user_password, tel, dt_birth, genre) values ('${username}', '${email}', '${user_password}', '${tel}', '${dt_birth}', '${genre}')`;
+   async create(username, email, password, tel, dt_birth, genre){
+      const { data: user, error } = await supabase
+      .from('users')
+      .insert([{ 
+         username, 
+         email, 
+         password,
+         tel,
+         dt_birth,
+         genre,
+      }]);
+
+      return user;
+   }
+
+   async checkEmailExists(email){
+      const { data: emailUser, error } = await supabase
+      .from('users')
+      .select('email')
+      .eq('email', email)
+      .single();
       
-      return new Promise((resolve, reject) => {
-         databaseConnection.query(sql, (err, result) => {
-            if(err) console.log(err);
-            resolve(result);
-         })
-      })
+      if(emailUser) return emailUser;
    }
 
-   checkEmailExists(email){
-      const sql = `SELECT email from users WHERE email = '${email}'`
+   async checkPhoneNumberExists(tel){
+      const { data: telUser, error } = await supabase
+      .from('users')
+      .select('tel')
+      .eq('tel', tel)
+      .single();
 
-      return new Promise((resolve, reject) => {
-         databaseConnection.query(sql, (err, result) => {
-            if(err) console.log('Deu ruim na consulta ao BD');
-            resolve(result);
-         })
-      })
-   }
-
-   checkPhoneNumberExists(tel){
-      const sql = `SELECT tel from users WHERE tel = '${tel}'`
-
-      return new Promise((resolve, reject) => {
-         databaseConnection.query(sql, (err, result) => {
-            if(err) console.log('Deu ruim na consulta ao BD');
-            resolve(result);
-         })
-      })
+   if(telUser) return telUser;
+   
    }
 }
 

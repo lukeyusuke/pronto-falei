@@ -1,47 +1,39 @@
-import { databaseConnection } from "../database.js";
-
+import { supabase } from '../database.js';
 class Profile{
-    selectUser(id_user){
-        const sql = `SELECT username, user_password, email, tel, dt_birth, genre FROM users WHERE id_user = ${id_user}`;
+    async selectUser(id_user){
+        const { data: user, error } = await supabase
+        .from('users')
+        .select('username, password, email, tel, dt_birth, genre') 
+        .eq('user_id', id_user);
 
-        return new Promise((resolve, reject) => {
-            databaseConnection.query(sql, (err, result) => {
-                if(err) console.log(err);
-                resolve(result);
-            })
-        })
-    }
-
-    updateUser(id_user, updatedFields) {
-        let sql = `UPDATE users SET `;  
-        let fieldList = Object.keys(updatedFields).map((field) => `${field} = '${updatedFields[field]}'`).join(', ');
-    
-        if (fieldList.length > 0) {
-            sql += `${fieldList} WHERE id_user = ${id_user}`;
+        if(user){
+            return user; 
+        } else {
+            return error;
         }
-    
-        return new Promise((resolve, reject) => {
-            databaseConnection.query(sql, (err, result) => {
-                if (err) {
-                    console.log(err);
-                    reject(err);
-                } else {
-                    resolve(result);
-                }
-            });
-        });
+    }
+
+    async updateUser(id_user, updatedFields) {
+        const { data: user, error } = await supabase
+        .from('users')
+        .update(updatedFields)
+        .eq('user_id', id_user);
+
+        if(user){
+            return user
+        } else {
+            return error;
+        }
     }
     
 
-    deleteUser(id_user){
-        const sql = `delete from users WHERE id_user = ${id_user}`;
-      
-        return new Promise((resolve, reject) => {
-            databaseConnection.query(sql, (err, result) => {
-                if(err) console.log(err);
-                resolve(result);
-            })
-        })
+    async deleteUser(id_user){
+        const {data: user, error} = await supabase
+        .from('users')
+        .delete()
+        .eq('user_id', id_user)
+
+        return user;
     }
 }
 

@@ -141,7 +141,6 @@ const selectUser = () => {
 }
 
 const showInputValues = (data) => { 
-
     const nome = document.getElementById("username");
     nome.placeholder = data.dataUser.username;
 
@@ -166,8 +165,8 @@ const showInputValues = (data) => {
     }
 
     const maskPassword = () => {
-        const password = document.getElementById('user_password');
-        const passwordValue = data.dataUser.user_password;
+        const password = document.getElementById('password');
+        const passwordValue = data.dataUser.password;
         const maskedPlaceholder = '*'.repeat(passwordValue.length);
         password.placeholder = maskedPlaceholder;
     }
@@ -190,9 +189,7 @@ const updateUser = () => {
                     'Content-Type': 'application/json;charset=UTF-8'
                 },
                 body: JSON.stringify(Object.fromEntries(formData))
-            }).then(response => response.json().then((data) => {
-                console.log(data)
-            }))
+            }).then(response => response.json().then((data) => {}))
         })
     }
 
