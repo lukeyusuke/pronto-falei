@@ -22,7 +22,7 @@
 </p>
 
 <h4 align="center">
-    <a href="">Clique para visitar o nosso site</a> <!-- Ainda vou colocar o site no ar -->
+    <a href="https://pronto-falei.vercel.app">Clique para visitar o nosso site</a> <!-- Ainda vou colocar o site no ar -->
 </h4>
 <br/>
 
@@ -63,10 +63,11 @@ Para a criação do Front-end foram utilizados [HTML](https://developer.mozilla.
 ### 🫁 Dependências 
 
 - [EJS](https://ejs.co)
-- [MySQL](https://www.mysql.com)
+- [Supabase](https://supabase.com/docs)
 - [Express](https://expressjs.com/pt-br/) 
 - [Webpack](https://webpack.js.org)
 - [Nodemailer](https://nodemailer.com)
+- [Redis](https://redis.io/docs/latest/)
 
 <br/>
 
@@ -98,6 +99,7 @@ Para a criação do Front-end foram utilizados [HTML](https://developer.mozilla.
 - Criação do CRUD
 - Manipulação do Banco de Dados 
 - Entendimento de rotas com Express
+- Gerenciamento de Sessões com Redis
 - Modelo MVC
 
 <br/>
